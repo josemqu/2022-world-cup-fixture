@@ -6,3 +6,26 @@
     width: 1.6rem;
     height: 1.1rem;
 }
+
+.group-table {
+    /* display: flex !important;
+    flex-direction: column;
+    align-items: space-around !important; */
+}
+
+table {
+    max-width: 25rem;
+
+}
+
+th,
+td {
+    padding: 0rem 0.2rem 0rem 0.2rem !important;
+}
+
+table tr :nth-child(2) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 5rem;
+}
