@@ -15,7 +15,7 @@
 
 table {
     max-width: 25rem;
-
+    transition: all ease-out 200ms;
 }
 
 th,
@@ -28,4 +28,28 @@ table tr :nth-child(2) {
     text-overflow: ellipsis;
     white-space: nowrap;
     max-width: 5rem;
+}
+
+thead tr :nth-child(1),
+tbody tr :nth-child(1) {
+    text-align: center;
+
+}
+
+tbody tr :nth-child(3),
+tbody tr :nth-child(4),
+tbody tr :nth-child(5),
+tbody tr :nth-child(6),
+tbody tr :nth-child(7),
+tbody tr :nth-child(8),
+tbody tr :nth-child(9),
+tbody tr :nth-child(10),
+tbody tr :nth-child(11),
+tbody tr :nth-child(12) {
+    text-align: right;
+    padding-right: 0.8rem !important;
+}
+
+.group-table .hide {
+    height: 0% !important;
 }

@@ -364,16 +364,29 @@ const groupsArr = [
 document.addEventListener("DOMContentLoaded", () => printData());
 
 const printData = () => {
-	for (const [i, group] of groupsArr.entries()) {
-		groupTemplate.querySelector(".group-name").textContent = `Grupo ${i + 1}`;
+	Object.keys(groups).forEach((group, i) => {
+		groupTemplate.querySelector(".group-name").textContent = `Grupo ${group}`;
 		const clone = groupTemplate.cloneNode(true);
 		fragment.appendChild(clone);
-		groupTables[i].appendChild(fragment);
-		printRow(groupTables[i], i);
-	}
+		let groupTable = groupTables[i];
+		groupTable.appendChild(fragment);
+		printRow(groupTable, i);
+	});
+	const groupNamesElements = document.querySelectorAll(".group-name");
+	groupNamesElements.forEach((groupNamesElement) => {
+		groupNamesElement.addEventListener("click", (e) => {
+			e.preventDefault();
+			console.log(e.target.parentNode);
+			groupNamesElements.forEach((groupNamesElement) => {
+				console.log(groupNamesElement.classList);
+				groupNamesElement.parentNode.classList.add("hide");
+			});
+			e.target.parentNode.classList.remove("hide");
+		});
+	});
 };
 
-const printRow = (group, j) => {
+const printRow = (groupTable, j) => {
 	groupsArr[j].forEach((teamID, i) => {
 		const { flagClass, name } = countries[teamID];
 		teamTemplate.querySelector(".pos").textContent = i + 1;
@@ -385,5 +398,5 @@ const printRow = (group, j) => {
 		const clone = teamTemplate.cloneNode(true);
 		fragment.appendChild(clone);
 	});
-	group.querySelector("tbody").appendChild(fragment);
+	groupTable.querySelector("tbody").appendChild(fragment);
 };
