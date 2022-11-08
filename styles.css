@@ -2,19 +2,21 @@
     box-sizing: border-box;
 }
 
+.title {
+    border-bottom: 0.2rem solid #4F4F4F;
+}
+
 .country img {
     width: 1.6rem;
     height: 1.1rem;
 }
 
 .group-table {
-    /* display: flex !important;
-    flex-direction: column;
-    align-items: space-around !important; */
+    max-width: 25rem;
 }
 
 table {
-    max-width: 25rem;
+    /* max-width: 28rem; */
     transition: all ease-out 200ms;
 }
 
