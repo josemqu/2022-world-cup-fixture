@@ -32,6 +32,12 @@ table tr :nth-child(2) {
     max-width: 5rem;
 }
 
+table tbody tr:nth-child(1) td,
+table tbody tr:nth-child(2) td {
+    background-color: rgb(240, 250, 240);
+    font-weight: 500;
+}
+
 thead tr :nth-child(1),
 tbody tr :nth-child(1) {
     text-align: center;

@@ -400,3 +400,78 @@ const printRow = (groupTable, j) => {
 	});
 	groupTable.querySelector("tbody").appendChild(fragment);
 };
+
+const feedDisplay = document.querySelector("#feed");
+
+fetch("http://localhost:8000/results")
+	.then((response) => {
+		return response.json();
+	})
+	.then((data) => {
+		data.forEach((game) => {
+			const gameItem = `
+            <div>
+                <span>${game.date}</span>
+                <span>${game.homeTeam}</span>
+                <span>${game.result}</span>
+                <span>${game.awayTeam}</span>
+            </div>`;
+			feedDisplay.insertAdjacentHTML("beforeend", gameItem);
+		});
+	})
+	.catch((err) => console.log(err));
+
+const groupC = ["Argentina", "Arabia Saudita", "Mexico", "Polonia"];
+
+const teams = (group) =>
+	Array.from({ length: 4 }).map((_, i) => ({
+		name: group[i],
+		points: 0,
+		goals: 0,
+	}));
+
+function kCombinations(set, k) {
+	let i;
+	let j;
+	let combs;
+	let head;
+	let tailcombs;
+
+	if (k > set.length || k <= 0) {
+		return [];
+	}
+
+	if (k === set.length) {
+		return [set];
+	}
+
+	if (k === 1) {
+		combs = [];
+		for (i = 0; i < set.length; i++) {
+			combs.push([set[i]]);
+		}
+		return combs;
+	}
+	combs = [];
+	for (i = 0; i < set.length - k + 1; i++) {
+		head = set.slice(i, i + 1);
+		tailcombs = kCombinations(set.slice(i + 1), k - 1);
+		for (j = 0; j < tailcombs.length; j++) {
+			combs.push(head.concat(tailcombs[j]));
+		}
+	}
+	return combs;
+}
+
+const games = (group) =>
+	kCombinations(teams(group), 2).map((match) => {
+		const [t1, t2] = match;
+		const t1Goals = Math.floor(Math.random() * 5);
+		const t2Goals = Math.floor(Math.random() * 5);
+		const t1Points = t1Goals > t2Goals ? 3 : t1Goals === t2Goals ? 1 : 0;
+		const t2Points = t2Goals > t1Goals ? 3 : t1Goals === t2Goals ? 1 : 0;
+		return [
+			{ name: t1.name, goals: t1Goals, points: t1Points },
+			{ name: t2.name, goals: t2Goals, points: t2Points },
+		];
+	});
