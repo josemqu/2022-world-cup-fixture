@@ -325,8 +325,10 @@ const countries = {
 // 	},
 // ];
 
+const feedDisplay = document.querySelector("#feed");
 const groupTemplate = document.querySelector("#group-template").content;
 const teamTemplate = document.querySelector("#team-template").content;
+const gameTemplate = document.querySelector("#game-template").content;
 const groupTables = document.querySelectorAll(".group-table");
 const fragment = document.createDocumentFragment();
 
@@ -401,8 +403,6 @@ const printRow = (groupTable, j) => {
 	groupTable.querySelector("tbody").appendChild(fragment);
 };
 
-const feedDisplay = document.querySelector("#feed");
-
 fetch("http://localhost:8000/results")
 	.then((response) => {
 		return response.json();
@@ -411,6 +411,7 @@ fetch("http://localhost:8000/results")
 		data.forEach((game) => {
 			const gameItem = `
             <div>
+                <span>${game.group}</span>
                 <span>${game.date}</span>
                 <span>${game.homeTeam}</span>
                 <span>${game.result}</span>
@@ -419,7 +420,7 @@ fetch("http://localhost:8000/results")
 			feedDisplay.insertAdjacentHTML("beforeend", gameItem);
 		});
 	})
-	.catch((err) => console.log(err));
+	.catch((err) => console.error(err));
 
 const groupC = ["Argentina", "Arabia Saudita", "Mexico", "Polonia"];
 

@@ -19,8 +19,14 @@ app.get("/results", (req, res) => {
 			const $ = cheerio.load(html);
 			const games = [];
 			$(".grtr", html).each(function () {
-				//<-- cannot be a function expression
-				const div = $(this).html();
+				const group = titleCase(
+					$(this)
+						.parent()
+						.parent()
+						.find(".titulotabla2")
+						.text()
+						.split(" arrow")[0]
+				);
 				const date = $(this).prev().text().trim();
 				const homeTeam = $(this).find(".greq1").text();
 				const awayTeam = $(this).find(".greq2").text();
@@ -28,7 +34,7 @@ app.get("/results", (req, res) => {
 				const homeGoals = parseInt(result.split("-")[0]);
 				const awayGoals = parseInt(result.split("-")[1]);
 				games.push({
-					// div,
+					group,
 					date,
 					homeTeam,
 					awayTeam,
@@ -43,3 +49,11 @@ app.get("/results", (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`server running on PORT ${PORT}`));
+
+function titleCase(str) {
+	str = str.toLowerCase().split(" ");
+	for (var i = 0; i < str.length; i++) {
+		str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+	}
+	return str.join(" ");
+}
