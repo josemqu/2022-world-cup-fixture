@@ -887,13 +887,14 @@ const printGames = (groupTable, groupName) => {
 	groupTable.querySelector(".games tbody").appendChild(gameFragment);
 };
 
-fetch("https://qatar-world-cup.onrender.com/results")
-	.then((response) => {
-		return response.json();
-	})
-	.then((data) => {
-		data.forEach((game) => {
-			const gameItem = `
+const getScores = async () => {
+	await fetch("https://qatar-world-cup.onrender.com/results")
+		.then((response) => {
+			return response.json();
+		})
+		.then((data) => {
+			data.forEach((game) => {
+				const gameItem = `
             <div>
                 <span>${game.group}</span>
                 <span>${game.date}</span>
@@ -901,7 +902,10 @@ fetch("https://qatar-world-cup.onrender.com/results")
                 <span>${game.result}</span>
                 <span>${game.awayTeam}</span>
             </div>`;
-			feedDisplay.insertAdjacentHTML("beforeend", gameItem);
-		});
-	})
-	.catch((err) => console.error(err));
+				feedDisplay.insertAdjacentHTML("beforeend", gameItem);
+			});
+		})
+		.catch((err) => console.error(err));
+};
+
+getScores();

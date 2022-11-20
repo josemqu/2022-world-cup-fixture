@@ -31,8 +31,8 @@ app.get("/results", (req, res) => {
 				const homeTeam = $(this).find(".greq1").text();
 				const awayTeam = $(this).find(".greq2").text();
 				const result = $(this).find(".grres0").text();
-				const homeGoals = parseInt(result.split("-")[0]);
-				const awayGoals = parseInt(result.split("-")[1]);
+				const homeGoals = parseInt(result.trim().split("-")[0]);
+				const awayGoals = parseInt(result.trim().split("-")[1]);
 				games.push({
 					group,
 					date,
