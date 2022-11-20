@@ -901,7 +901,7 @@ fetch("http://localhost:8000/results")
                 <span>${game.result}</span>
                 <span>${game.awayTeam}</span>
             </div>`;
-			// feedDisplay.insertAdjacentHTML("beforeend", gameItem);
+			feedDisplay.insertAdjacentHTML("beforeend", gameItem);
 		});
 	})
 	.catch((err) => console.error(err));
