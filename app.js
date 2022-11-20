@@ -359,24 +359,27 @@ const countries = {
 
 const games = [
 	{
+		matchId: "m01",
 		group: "Grupo A",
 		date: "Dom  20/11, 13:00",
 		homeTeam: "QA",
 		awayTeam: "EC",
-		homeGoals: 0,
-		awayGoals: 1,
+		homeGoals: null,
+		awayGoals: null,
 		result: " - ",
 	},
 	{
+		matchId: "m02",
 		group: "Grupo A",
 		date: "Lun  21/11, 13:00",
 		homeTeam: "SN",
 		awayTeam: "NL",
-		homeGoals: 1,
-		awayGoals: 3,
+		homeGoals: null,
+		awayGoals: null,
 		result: " - ",
 	},
 	{
+		matchId: "m18",
 		group: "Grupo A",
 		date: "Vie  25/11, 10:00",
 		homeTeam: "QA",
@@ -386,6 +389,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m19",
 		group: "Grupo A",
 		date: "Vie  25/11, 13:00",
 		homeTeam: "NL",
@@ -395,6 +399,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m36",
 		group: "Grupo A",
 		date: "Mar  29/11, 12:00",
 		homeTeam: "NL",
@@ -404,6 +409,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m35",
 		group: "Grupo A",
 		date: "Mar  29/11, 12:00",
 		homeTeam: "EC",
@@ -413,6 +419,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m03",
 		group: "Grupo B",
 		date: "Lun  21/11, 10:00",
 		homeTeam: "EN",
@@ -422,6 +429,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m04",
 		group: "Grupo B",
 		date: "Lun  21/11, 16:00",
 		homeTeam: "US",
@@ -431,6 +439,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m17",
 		group: "Grupo B",
 		date: "Vie  25/11, 07:00",
 		homeTeam: "WA",
@@ -440,6 +449,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m20",
 		group: "Grupo B",
 		date: "Vie  25/11, 16:00",
 		homeTeam: "EN",
@@ -449,6 +459,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m33",
 		group: "Grupo B",
 		date: "Mar  29/11, 16:00",
 		homeTeam: "WA",
@@ -458,6 +469,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m34",
 		group: "Grupo B",
 		date: "Mar  29/11, 16:00",
 		homeTeam: "IR",
@@ -467,6 +479,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m08",
 		group: "Grupo C",
 		date: "Mar  22/11, 07:00",
 		homeTeam: "AR",
@@ -476,6 +489,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m07",
 		group: "Grupo C",
 		date: "Mar  22/11, 13:00",
 		homeTeam: "MX",
@@ -485,6 +499,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m22",
 		group: "Grupo C",
 		date: "Sab  26/11, 10:00",
 		homeTeam: "PL",
@@ -494,6 +509,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m24",
 		group: "Grupo C",
 		date: "Sab  26/11, 16:00",
 		homeTeam: "AR",
@@ -503,6 +519,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m39",
 		group: "Grupo C",
 		date: "Mie  30/11, 16:00",
 		homeTeam: "PL",
@@ -512,6 +529,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m40",
 		group: "Grupo C",
 		date: "Mie  30/11, 16:00",
 		homeTeam: "SA",
@@ -521,6 +539,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m06",
 		group: "Grupo D",
 		date: "Mar  22/11, 10:00",
 		homeTeam: "DK",
@@ -530,6 +549,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m05",
 		group: "Grupo D",
 		date: "Mar  22/11, 16:00",
 		homeTeam: "FR",
@@ -539,6 +559,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m21",
 		group: "Grupo D",
 		date: "Sab  26/11, 07:00",
 		homeTeam: "TN",
@@ -548,6 +569,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m23",
 		group: "Grupo D",
 		date: "Sab  26/11, 13:00",
 		homeTeam: "FR",
@@ -557,6 +579,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m38",
 		group: "Grupo D",
 		date: "Mie  30/11, 12:00",
 		homeTeam: "TN",
@@ -566,6 +589,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m37",
 		group: "Grupo D",
 		date: "Mie  30/11, 12:00",
 		homeTeam: "AU",
@@ -575,6 +599,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m11",
 		group: "Grupo E",
 		date: "Mie  23/11, 10:00",
 		homeTeam: "DE",
@@ -584,6 +609,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m10",
 		group: "Grupo E",
 		date: "Mie  23/11, 13:00",
 		homeTeam: "ES",
@@ -593,6 +619,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m25",
 		group: "Grupo E",
 		date: "Dom  27/11, 07:00",
 		homeTeam: "JP",
@@ -602,6 +629,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m28",
 		group: "Grupo E",
 		date: "Dom  27/11, 16:00",
 		homeTeam: "ES",
@@ -611,6 +639,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m43",
 		group: "Grupo E",
 		date: "Jue  1/12, 16:00",
 		homeTeam: "JP",
@@ -620,6 +649,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m44",
 		group: "Grupo E",
 		date: "Jue  1/12, 16:00",
 		homeTeam: "CR",
@@ -629,6 +659,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m12",
 		group: "Grupo F",
 		date: "Mie  23/11, 07:00",
 		homeTeam: "MA",
@@ -638,6 +669,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m09",
 		group: "Grupo F",
 		date: "Mie  23/11, 16:00",
 		homeTeam: "BE",
@@ -647,6 +679,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m26",
 		group: "Grupo F",
 		date: "Dom  27/11, 10:00",
 		homeTeam: "BE",
@@ -656,6 +689,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m27",
 		group: "Grupo F",
 		date: "Dom  27/11, 13:00",
 		homeTeam: "HR",
@@ -665,6 +699,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m41",
 		group: "Grupo F",
 		date: "Jue  1/12, 12:00",
 		homeTeam: "HR",
@@ -674,6 +709,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m42",
 		group: "Grupo F",
 		date: "Jue  1/12, 12:00",
 		homeTeam: "CA",
@@ -683,6 +719,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m13",
 		group: "Grupo G",
 		date: "Jue  24/11, 07:00",
 		homeTeam: "CH",
@@ -692,6 +729,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m16",
 		group: "Grupo G",
 		date: "Jue  24/11, 16:00",
 		homeTeam: "BR",
@@ -701,6 +739,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m29",
 		group: "Grupo G",
 		date: "Lun  28/11, 07:00",
 		homeTeam: "CM",
@@ -710,6 +749,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m31",
 		group: "Grupo G",
 		date: "Lun  28/11, 13:00",
 		homeTeam: "BR",
@@ -719,6 +759,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m48",
 		group: "Grupo G",
 		date: "Vie  2/12, 16:00",
 		homeTeam: "CM",
@@ -728,6 +769,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m47",
 		group: "Grupo G",
 		date: "Vie  2/12, 16:00",
 		homeTeam: "RS",
@@ -737,6 +779,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m14",
 		group: "Grupo H",
 		date: "Jue  24/11, 10:00",
 		homeTeam: "UY",
@@ -746,6 +789,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m15",
 		group: "Grupo H",
 		date: "Jue  24/11, 13:00",
 		homeTeam: "PT",
@@ -755,6 +799,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m30",
 		group: "Grupo H",
 		date: "Lun  28/11, 10:00",
 		homeTeam: "KR",
@@ -764,6 +809,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m32",
 		group: "Grupo H",
 		date: "Lun  28/11, 16:00",
 		homeTeam: "PT",
@@ -773,6 +819,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m46",
 		group: "Grupo H",
 		date: "Vie  2/12, 12:00",
 		homeTeam: "KR",
@@ -782,6 +829,7 @@ const games = [
 		result: " - ",
 	},
 	{
+		matchId: "m45",
 		group: "Grupo H",
 		date: "Vie  2/12, 12:00",
 		homeTeam: "GH",
@@ -863,11 +911,12 @@ const printRows = (groupTable, j) => {
 
 const printGames = (groupTable, groupName) => {
 	const groupGames = games.filter((game) => game.group === groupName);
-	console.log(groupGames);
+	// console.log(groupGames);
 	groupGames.forEach((game) => {
-		const { date, homeTeam, awayTeam, homeGoals, awayGoals } = game;
+		const { matchId, date, homeTeam, awayTeam, homeGoals, awayGoals } = game;
 		const homeFlagClass = countries[homeTeam].flagClass;
 		const awayFlagClass = countries[awayTeam].flagClass;
+		gameTemplate.querySelector(".game").setAttribute("id", matchId);
 		gameTemplate.querySelector(".date").textContent = date;
 		gameTemplate.querySelector(".home-team").textContent =
 			countries[homeTeam].shortName;
@@ -888,24 +937,55 @@ const printGames = (groupTable, groupName) => {
 };
 
 const getScores = async () => {
-	await fetch("https://qatar-world-cup.onrender.com/results")
+	await fetch("http://localhost:8000/results") //https://qatar-world-cup.onrender.com/results
 		.then((response) => {
 			return response.json();
 		})
 		.then((data) => {
-			data.forEach((game) => {
-				const gameItem = `
-            <div>
-                <span>${game.group}</span>
-                <span>${game.date}</span>
-                <span>${game.homeTeam}</span>
-                <span>${game.result}</span>
-                <span>${game.awayTeam}</span>
-            </div>`;
-				feedDisplay.insertAdjacentHTML("beforeend", gameItem);
-			});
+			printScores(data);
+			updateScores(data);
+			// console.log(data);
+			// return data;
 		})
 		.catch((err) => console.error(err));
 };
 
+const updateScores = (data) => {
+	console.log(data);
+	return data;
+};
+
 getScores();
+
+const printScores = (data) => {
+	const scoreObj = {};
+	data.forEach((score) => {
+		const scoreId = games.filter((game) => {
+			return (
+				score.homeGoals !== null &&
+				countries[game.homeTeam].shortName === score.homeTeam &&
+				countries[game.awayTeam].shortName === score.awayTeam
+			);
+		})[0]?.matchId;
+		if (scoreId) scoreObj[scoreId] = score;
+	});
+	console.log(scoreObj);
+	Object.keys(scoreObj).forEach((score) => {
+		const gameElement = document.getElementById(score);
+		gameElement.querySelector(".home-goals").textContent =
+			scoreObj[score].homeGoals;
+		gameElement.querySelector(".away-goals").textContent =
+			scoreObj[score].awayGoals;
+	});
+	data.forEach((game) => {
+		const gameItem = `
+	<div>
+		<span>${game.group}</span>
+		<span>${game.date}</span>
+		<span>${game.homeTeam}</span>
+		<span>${game.result}</span>
+		<span>${game.awayTeam}</span>
+	</div>`;
+		feedDisplay.insertAdjacentHTML("beforeend", gameItem);
+	});
+};
