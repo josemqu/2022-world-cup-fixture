@@ -887,7 +887,7 @@ const printGames = (groupTable, groupName) => {
 	groupTable.querySelector(".games tbody").appendChild(gameFragment);
 };
 
-fetch("http://localhost:8000/results")
+fetch("https://qatar-world-cup.onrender.com/results")
 	.then((response) => {
 		return response.json();
 	})
