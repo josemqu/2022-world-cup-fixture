@@ -937,7 +937,13 @@ const printGames = (groupTable, groupName) => {
 };
 
 const getScores = async () => {
-	await fetch("http://localhost:8000/results") //https://qatar-world-cup.onrender.com/results
+	let endpoint = "";
+	if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+		endpoint = "http://localhost:8000/results";
+	} else {
+		endpoint = "https://qatar-world-cup.onrender.com/results";
+	}
+	await fetch(endpoint) //
 		.then((response) => {
 			return response.json();
 		})
