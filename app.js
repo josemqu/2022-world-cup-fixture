@@ -879,8 +879,6 @@ const groupsArr = [
 	groupDataH,
 ];
 
-document.addEventListener("DOMContentLoaded", () => printData());
-
 const printData = () => {
 	Object.keys(groups).forEach((group, i) => {
 		const groupName = `Grupo ${group}`;
@@ -937,6 +935,7 @@ const printGames = (groupTable, groupName) => {
 };
 
 const getScores = async () => {
+	toggleSpinner();
 	let endpoint = "";
 	if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
 		endpoint = "http://localhost:8000/results";
@@ -954,14 +953,13 @@ const getScores = async () => {
 			// return data;
 		})
 		.catch((err) => console.error(err));
+	toggleSpinner();
 };
 
 const updateScores = (data) => {
 	console.log(data);
 	return data;
 };
-
-getScores();
 
 const printScores = (data) => {
 	const scoreObj = {};
@@ -985,13 +983,37 @@ const printScores = (data) => {
 	});
 	data.forEach((game) => {
 		const gameItem = `
-	<div>
-		<span>${game.group}</span>
-		<span>${game.date}</span>
-		<span>${game.homeTeam}</span>
-		<span>${game.result}</span>
-		<span>${game.awayTeam}</span>
-	</div>`;
+<div>
+	<span>${game.group}</span>
+	<span>${game.date}</span>
+	<span>${game.homeTeam}</span>
+	<span>${game.result}</span>
+	<span>${game.awayTeam}</span>
+</div>`;
 		feedDisplay.insertAdjacentHTML("beforeend", gameItem);
 	});
 };
+
+function toggleSpinner() {
+	const spinner = document.getElementById("spinner");
+	const update = document.getElementById("update-icon");
+	spinner.classList.toggle("hide");
+	update.classList.toggle("hide");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+	printData();
+	getScores();
+
+	const update = document.getElementById("update-icon");
+	update.addEventListener("click", getScores);
+
+	//luxon.DateTime.fromFormat("20/11, 13:00", "dd/MM, hh:mm")
+});
+
+var tooltipTriggerList = [].slice.call(
+	document.querySelectorAll('[data-bs-toggle="tooltip"]')
+);
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+	return new bootstrap.Tooltip(tooltipTriggerEl);
+});

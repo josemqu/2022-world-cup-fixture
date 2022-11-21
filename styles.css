@@ -1,8 +1,25 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.title {
+#spinner.hide {
+    display: none;
+}
+
+#update-icon.hide {
+    display: none;
+}
+
+#update {
+    cursor: pointer;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     border-bottom: 0.2rem solid #4F4F4F;
 }
 
