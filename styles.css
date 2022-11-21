@@ -43,12 +43,14 @@
     height: 1.3rem;
     font-size: 0.75rem;
     vertical-align: middle;
+    border-left: white solid 2px;
+    border-right: white solid 2px;
+    padding: 0px;
 }
 
 .games tr :nth-child(1) {
     text-align: left;
     width: auto;
-    border-right: 0.2rem solid transparent;
 }
 
 .games tr :nth-child(2) {
@@ -60,19 +62,33 @@
 .games tr :nth-child(4) {
     width: 10%;
     text-align: center;
-    /* background-color: rgb(240, 250, 240); */
-    border-left: 0.2rem solid transparent;
-    border-right: 0.2rem solid transparent;
     font-weight: 500;
     font-size: 1rem;
-    padding: 0;
-    margin: 0;
+    /* padding: 0;
+    margin: 0; */
 }
 
 .games tr :nth-child(5) {
     width: 20%;
     text-align: right;
     border-right: 0.2rem solid transparent;
+}
+
+/* .grres4 :nth-child(3),
+.grres4 :nth-child(4) {
+    color: white;
+    background-color: #c0c0c0;
+    border: white solid 1px !important;
+    border-radius: 4px;
+} */
+
+.grres1 :nth-child(3),
+.grres1 :nth-child(4) {
+    color: red !important;
+}
+
+.grres1 {
+    background-color: rgb(243, 243, 243);
 }
 
 i.flag {
@@ -90,9 +106,9 @@ table {
     transition: all ease-out 200ms;
 }
 
-.group-table th,
-.group-table td {
-    padding: 0rem 0.5rem 0rem 0.2rem !important;
+.standings-table th,
+.standings-table td {
+    padding: 0rem 0.6rem 0rem 0.2rem !important;
 }
 
 .group-table table tr :nth-child(2) {

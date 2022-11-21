@@ -976,6 +976,7 @@ const printScores = (data) => {
 	console.log(scoreObj);
 	Object.keys(scoreObj).forEach((score) => {
 		const gameElement = document.getElementById(score);
+		gameElement.classList.add(scoreObj[score].state);
 		gameElement.querySelector(".home-goals").textContent =
 			scoreObj[score].homeGoals;
 		gameElement.querySelector(".away-goals").textContent =

@@ -35,6 +35,7 @@ app.get("/results", (req, res) => {
 					.text();
 				const homeGoals = parseInt(result.trim().split("-")[0]);
 				const awayGoals = parseInt(result.trim().split("-")[1]);
+				const state = $(this).children(":nth-child(2)").attr("class");
 				games.push({
 					group,
 					date,
@@ -43,6 +44,7 @@ app.get("/results", (req, res) => {
 					homeGoals,
 					awayGoals,
 					result,
+					state,
 				});
 			});
 			res.json(games);
