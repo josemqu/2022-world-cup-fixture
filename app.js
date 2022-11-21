@@ -1,361 +1,232 @@
-const countries = {
-	AR: {
-		id: "AR",
-		name: "Argentina",
-		shortName: "ARG",
-		flagClass: "flag-argentina",
-	},
-	EN: {
-		id: "EN",
-		name: "Inglaterra",
-		shortName: "ING",
-		flagClass: "flag-england",
-	},
-	FR: {
-		id: "FR",
-		name: "Francia",
-		shortName: "FRA",
-		flagClass: "flag-france",
-	},
-	BR: {
-		id: "BR",
-		name: "Brasil",
-		shortName: "BRA",
-		flagClass: "flag-brazil",
-	},
-	DE: {
-		id: "DE",
-		name: "Alemania",
-		shortName: "ALE",
-		flagClass: "flag-germany",
-	},
+import Team from "./model.js";
+
+const teams = {
 	QA: {
 		id: "QA",
 		name: "Qatar",
-		shortName: "QAT",
 		flagClass: "flag-qatar",
-	},
-	WA: {
-		id: "WA",
-		name: "Gales",
-		shortName: "GAL",
-		flagClass: "flag-wales",
+		shortName: "QAT",
+		group: "Grupo A",
 	},
 	EC: {
 		id: "EC",
 		name: "Ecuador",
-		shortName: "ECU",
 		flagClass: "flag-ecuador",
+		shortName: "ECU",
+		group: "Grupo A",
 	},
 	SN: {
 		id: "SN",
 		name: "Senegal",
-		shortName: "SEN",
 		flagClass: "flag-senegal",
+		shortName: "SEN",
+		group: "Grupo A",
 	},
 	NL: {
 		id: "NL",
 		name: "Paises Bajos",
-		shortName: "PAI",
 		flagClass: "flag-netherlands",
+		shortName: "PAI",
+		group: "Grupo A",
+	},
+
+	EN: {
+		id: "EN",
+		name: "Inglaterra",
+		flagClass: "flag-england",
+		shortName: "ING",
+		group: "Grupo B",
 	},
 	IR: {
 		id: "IR",
 		name: "Iran",
-		shortName: "IRA",
 		flagClass: "flag-iran",
+		shortName: "IRA",
+		group: "Grupo B",
 	},
 	US: {
 		id: "US",
 		name: "USA",
-		shortName: "USA",
 		flagClass: "flag-us",
+		shortName: "USA",
+		group: "Grupo B",
+	},
+	WA: {
+		id: "WA",
+		name: "Gales",
+		flagClass: "flag-wales",
+		shortName: "GAL",
+		group: "Grupo B",
+	},
+	AR: {
+		id: "AR",
+		name: "Argentina",
+		flagClass: "flag-argentina",
+		shortName: "ARG",
+		group: "Grupo C",
 	},
 	SA: {
 		id: "SA",
 		name: "Arabia Saudita",
-		shortName: "ARA",
 		flagClass: "flag-saudi-arabia",
+		shortName: "ARA",
+		group: "Grupo C",
 	},
 	MX: {
 		id: "MX",
 		name: "Mexico",
-		shortName: "MEX",
 		flagClass: "flag-mexico",
-	},
-	AU: {
-		id: "AU",
-		name: "Australia",
-		shortName: "AUS",
-		flagClass: "flag-australia",
+		shortName: "MEX",
+		group: "Grupo C",
 	},
 	PL: {
 		id: "PL",
 		name: "Polonia",
-		shortName: "POL",
 		flagClass: "flag-poland",
+		shortName: "POL",
+		group: "Grupo C",
+	},
+	FR: {
+		id: "FR",
+		name: "Francia",
+		flagClass: "flag-france",
+		shortName: "FRA",
+		group: "Grupo D",
+	},
+	AU: {
+		id: "AU",
+		name: "Australia",
+		flagClass: "flag-australia",
+		shortName: "AUS",
+		group: "Grupo D",
 	},
 	DK: {
 		id: "DK",
 		name: "Dinamarca",
-		shortName: "DIN",
 		flagClass: "flag-denmark",
+		shortName: "DIN",
+		group: "Grupo D",
 	},
 	TN: {
 		id: "TN",
 		name: "Tunez",
-		shortName: "TUN",
 		flagClass: "flag-tunisia",
+		shortName: "TUN",
+		group: "Grupo D",
 	},
 	ES: {
 		id: "ES",
 		name: "España",
-		shortName: "ESP",
 		flagClass: "flag-spain",
+		shortName: "ESP",
+		group: "Grupo E",
 	},
 	CR: {
 		id: "CR",
 		name: "Costa Rica",
-		shortName: "COS",
 		flagClass: "flag-costa-rica",
+		shortName: "COS",
+		group: "Grupo E",
+	},
+	DE: {
+		id: "DE",
+		name: "Alemania",
+		flagClass: "flag-germany",
+		shortName: "ALE",
+		group: "Grupo E",
 	},
 	JP: {
 		id: "JP",
 		name: "Japon",
-		shortName: "JAP",
 		flagClass: "flag-japan",
+		shortName: "JAP",
+		group: "Grupo E",
 	},
 	BE: {
 		id: "BE",
 		name: "Belgica",
-		shortName: "BEL",
 		flagClass: "flag-belgium",
+		shortName: "BEL",
+		group: "Grupo F",
 	},
 	CA: {
 		id: "CA",
 		name: "Canada",
-		shortName: "CAN",
 		flagClass: "flag-canada",
+		shortName: "CAN",
+		group: "Grupo F",
 	},
 	MA: {
 		id: "MA",
 		name: "Marruecos",
-		shortName: "MAR",
 		flagClass: "flag-morocco",
+		shortName: "MAR",
+		group: "Grupo F",
 	},
 	HR: {
 		id: "HR",
 		name: "Croacia",
-		shortName: "CRO",
 		flagClass: "flag-croatia",
+		shortName: "CRO",
+		group: "Grupo F",
+	},
+	BR: {
+		id: "BR",
+		name: "Brasil",
+		flagClass: "flag-brazil",
+		shortName: "BRA",
+		group: "Grupo G",
 	},
 	RS: {
 		id: "RS",
 		name: "Serbia",
-		shortName: "SER",
 		flagClass: "flag-serbia",
+		shortName: "SER",
+		group: "Grupo G",
 	},
 	CH: {
 		id: "CH",
 		name: "Suiza",
-		shortName: "SUI",
 		flagClass: "flag-switzerland",
+		shortName: "SUI",
+		group: "Grupo G",
 	},
 	CM: {
 		id: "CM",
 		name: "Camerun",
-		shortName: "CAM",
 		flagClass: "flag-cameroon",
+		shortName: "CAM",
+		group: "Grupo G",
 	},
 	PT: {
 		id: "PT",
 		name: "Portugal",
-		shortName: "POR",
 		flagClass: "flag-portugal",
+		shortName: "POR",
+		group: "Grupo H",
 	},
 	GH: {
 		id: "GH",
 		name: "Ghana",
-		shortName: "GHA",
 		flagClass: "flag-ghana",
+		shortName: "GHA",
+		group: "Grupo H",
 	},
 	UY: {
 		id: "UY",
 		name: "Uruguay",
-		shortName: "URU",
 		flagClass: "flag-uruguay",
+		shortName: "URU",
+		group: "Grupo H",
 	},
 	KR: {
 		id: "KR",
 		name: "Corea del Sur",
-		shortName: "COR",
 		flagClass: "flag-south-korea",
+		shortName: "COR",
+		group: "Grupo H",
 	},
 };
-
-// const teams = [
-// 	{
-// 		id: "QA",
-// 		name: "Qatar",
-// 		flagClass: "flag-qatar",
-// 	},
-// 	{
-// 		id: "EC",
-// 		name: "Ecuador",
-// 		flagClass: "flag-ecuador",
-// 	},
-// 	{
-// 		id: "SN",
-// 		name: "Senegal",
-// 		flagClass: "flag-senegal",
-// 	},
-// 	{
-// 		id: "NL",
-// 		name: "Paises Bajos",
-// 		flagClass: "flag-netherlands",
-// 	},
-
-// 	{
-// 		id: "EN",
-// 		name: "Inglaterra",
-// 		flagClass: "flag-england",
-// 	},
-// 	{
-// 		id: "IR",
-// 		name: "Iran",
-// 		flagClass: "flag-iran",
-// 	},
-// 	{
-// 		id: "US",
-// 		name: "USA",
-// 		flagClass: "flag-us",
-// 	},
-// 	{
-// 		id: "WA",
-// 		name: "Gales",
-// 		flagClass: "flag-wales",
-// 	},
-// 	{
-// 		id: "AR",
-// 		name: "Argentina",
-// 		flagClass: "flag-argentina",
-// 	},
-// 	{
-// 		id: "SA",
-// 		name: "Arabia Saudita",
-// 		flagClass: "flag-saudi-arabia",
-// 	},
-// 	{
-// 		id: "MX",
-// 		name: "Mexico",
-// 		flagClass: "flag-mexico",
-// 	},
-// 	{
-// 		id: "PL",
-// 		name: "Polonia",
-// 		flagClass: "flag-poland",
-// 	},
-// 	{
-// 		id: "FR",
-// 		name: "Francia",
-// 		flagClass: "flag-france",
-// 	},
-// 	{
-// 		id: "AU",
-// 		name: "Australia",
-// 		flagClass: "flag-australia",
-// 	},
-// 	{
-// 		id: "DK",
-// 		name: "Dinamarca",
-// 		flagClass: "flag-denmark",
-// 	},
-// 	{
-// 		id: "TN",
-// 		name: "Tunez",
-// 		flagClass: "flag-tunisia",
-// 	},
-// 	{
-// 		id: "ES",
-// 		name: "España",
-// 		flagClass: "flag-spain",
-// 	},
-// 	{
-// 		id: "CR",
-// 		name: "Costa Rica",
-// 		flagClass: "flag-costa-rica",
-// 	},
-// 	{
-// 		id: "DE",
-// 		name: "Alemania",
-// 		flagClass: "flag-germany",
-// 	},
-// 	{
-// 		id: "JP",
-// 		name: "Japon",
-// 		flagClass: "flag-japan",
-// 	},
-// 	{
-// 		id: "BE",
-// 		name: "Belgica",
-// 		flagClass: "flag-belgium",
-// 	},
-// 	{
-// 		id: "CA",
-// 		name: "Canada",
-// 		flagClass: "flag-canada",
-// 	},
-// 	{
-// 		id: "MA",
-// 		name: "Marruecos",
-// 		flagClass: "flag-morocco",
-// 	},
-// 	{
-// 		id: "HR",
-// 		name: "Croacia",
-// 		flagClass: "flag-croatia",
-// 	},
-// 	{
-// 		id: "BR",
-// 		name: "Brasil",
-// 		flagClass: "flag-brazil",
-// 	},
-// 	{
-// 		id: "RS",
-// 		name: "Serbia",
-// 		flagClass: "flag-serbia",
-// 	},
-// 	{
-// 		id: "CH",
-// 		name: "Suiza",
-// 		flagClass: "flag-switzerland",
-// 	},
-// 	{
-// 		id: "CM",
-// 		name: "Camerun",
-// 		flagClass: "flag-cameroon",
-// 	},
-// 	{
-// 		id: "PT",
-// 		name: "Portugal",
-// 		flagClass: "flag-portugal",
-// 	},
-// 	{
-// 		id: "GH",
-// 		name: "Ghana",
-// 		flagClass: "flag-ghana",
-// 	},
-// 	{
-// 		id: "UY",
-// 		name: "Uruguay",
-// 		flagClass: "flag-uruguay",
-// 	},
-// 	{
-// 		id: "KR",
-// 		name: "Corea del Sur",
-// 		flagClass: "flag-south-korea",
-// 	},
-// ];
 
 const games = [
 	{
@@ -879,6 +750,21 @@ const groupsArr = [
 	groupDataH,
 ];
 
+const convertArrayToObject = (array, key) => {
+	const initialValue = {};
+	return array.reduce((obj, item) => {
+		return {
+			...obj,
+			[item[key]]: item,
+		};
+	}, initialValue);
+};
+
+const teamsShortName = convertArrayToObject(
+	Object.keys(teams).map((team) => teams[team]),
+	"shortName"
+);
+
 const printData = () => {
 	Object.keys(groups).forEach((group, i) => {
 		const groupName = `Grupo ${group}`;
@@ -894,7 +780,7 @@ const printData = () => {
 
 const printRows = (groupTable, j) => {
 	groupsArr[j].forEach((teamID, i) => {
-		const { flagClass, name } = countries[teamID];
+		const { flagClass, name } = teams[teamID];
 		teamTemplate.querySelector(".pos").textContent = i + 1;
 		teamTemplate.querySelector(".team").innerText = name;
 		const iElement = document.createElement("i");
@@ -912,16 +798,16 @@ const printGames = (groupTable, groupName) => {
 	// console.log(groupGames);
 	groupGames.forEach((game) => {
 		const { matchId, date, homeTeam, awayTeam, homeGoals, awayGoals } = game;
-		const homeFlagClass = countries[homeTeam].flagClass;
-		const awayFlagClass = countries[awayTeam].flagClass;
+		const homeFlagClass = teams[homeTeam].flagClass;
+		const awayFlagClass = teams[awayTeam].flagClass;
 		gameTemplate.querySelector(".game").setAttribute("id", matchId);
 		gameTemplate.querySelector(".date").textContent = date;
 		gameTemplate.querySelector(".home-team").textContent =
-			countries[homeTeam].shortName;
+			teams[homeTeam].shortName;
 		gameTemplate.querySelector(".home-goals").textContent = homeGoals;
 		gameTemplate.querySelector(".away-goals").textContent = awayGoals;
 		gameTemplate.querySelector(".away-team").textContent =
-			countries[awayTeam].shortName;
+			teams[awayTeam].shortName;
 		const iHomeElement = document.createElement("i");
 		const iAwayElement = document.createElement("i");
 		iHomeElement.classList.add("flag", `${homeFlagClass}`);
@@ -934,7 +820,7 @@ const printGames = (groupTable, groupName) => {
 	groupTable.querySelector(".games tbody").appendChild(gameFragment);
 };
 
-const getScores = async () => {
+const updateScores = async () => {
 	toggleSpinner();
 	let endpoint = "";
 	if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
@@ -947,8 +833,10 @@ const getScores = async () => {
 			return response.json();
 		})
 		.then((data) => {
-			printScores(data);
-			updateScores(data);
+			const scores = getScores(data);
+			const standings = getStandings(scores);
+			printScores(scores);
+			printStandings(standings);
 			// console.log(data);
 			// return data;
 		})
@@ -956,43 +844,91 @@ const getScores = async () => {
 	toggleSpinner();
 };
 
-const updateScores = (data) => {
-	console.log(data);
-	return data;
+const printScores = (scoresObj) => {
+	Object.keys(scoresObj).forEach((score) => {
+		const gameElement = document.getElementById(score);
+		gameElement.classList.add(scoresObj[score].state);
+		gameElement.querySelector(".home-goals").textContent =
+			scoresObj[score].homeGoals;
+		gameElement.querySelector(".away-goals").textContent =
+			scoresObj[score].awayGoals;
+	});
 };
 
-const printScores = (data) => {
-	const scoreObj = {};
+const getScores = (data) => {
+	const scoresObj = {};
 	data.forEach((score) => {
 		const scoreId = games.filter((game) => {
 			return (
 				score.homeGoals !== null &&
-				countries[game.homeTeam].shortName === score.homeTeam &&
-				countries[game.awayTeam].shortName === score.awayTeam
+				teams[game.homeTeam].shortName === score.homeTeam &&
+				teams[game.awayTeam].shortName === score.awayTeam
 			);
 		})[0]?.matchId;
-		if (scoreId) scoreObj[scoreId] = score;
+		if (scoreId) scoresObj[scoreId] = score;
 	});
-	console.log(scoreObj);
-	Object.keys(scoreObj).forEach((score) => {
-		const gameElement = document.getElementById(score);
-		gameElement.classList.add(scoreObj[score].state);
-		gameElement.querySelector(".home-goals").textContent =
-			scoreObj[score].homeGoals;
-		gameElement.querySelector(".away-goals").textContent =
-			scoreObj[score].awayGoals;
+	return scoresObj;
+};
+
+const printStandings = (standings) => {
+	console.log(standings);
+};
+
+const getStandings = (scores) => {
+	console.log(scores);
+	const standingsArr = [];
+	Object.keys(scores).forEach((score) => {
+		standingsArr.push({
+			name: scores[score].homeTeam,
+			won: scores[score].homeGoals > scores[score].awayGoals ? 1 : 0,
+			draw: scores[score].homeGoals === scores[score].awayGoals ? 1 : 0,
+			loss: scores[score].homeGoals < scores[score].awayGoals ? 1 : 0,
+			gf: scores[score].homeGoals,
+			ga: scores[score].awayGoals,
+		});
+		standingsArr.push({
+			name: scores[score].awayTeam,
+			won: scores[score].homeGoals < scores[score].awayGoals ? 1 : 0,
+			draw: scores[score].homeGoals === scores[score].awayGoals ? 1 : 0,
+			loss: scores[score].homeGoals > scores[score].awayGoals ? 1 : 0,
+			gf: scores[score].awayGoals,
+			ga: scores[score].homeGoals,
+		});
 	});
-	data.forEach((game) => {
-		const gameItem = `
-<div>
-	<span>${game.group}</span>
-	<span>${game.date}</span>
-	<span>${game.homeTeam}</span>
-	<span>${game.result}</span>
-	<span>${game.awayTeam}</span>
-</div>`;
-		feedDisplay.insertAdjacentHTML("beforeend", gameItem);
+	let result = [];
+	standingsArr.reduce(function (res, value) {
+		console.log(value.name);
+		if (!res[value.name]) {
+			res[value.name] = {
+				id: teamsShortName[value.name].id,
+				won: 0,
+				draw: 0,
+				loss: 0,
+				gf: 0,
+				ga: 0,
+				group: teamsShortName[value.name].group,
+			};
+			result.push(res[value.name]);
+		}
+		res[value.name].won += value.won;
+		res[value.name].draw += value.draw;
+		res[value.name].loss += value.loss;
+		res[value.name].gf += value.gf;
+		res[value.name].ga += value.ga;
+		return res;
+	}, {});
+	console.log(result);
+
+	const results = result.map((el) => new Team(el));
+	console.log(results);
+
+	// group standings by team
+	console.log(result);
+	const standings = {};
+	result.map((el) => {
+		return (standings[el.name] = el);
 	});
+	return standings;
 };
 
 function toggleSpinner() {
@@ -1002,12 +938,13 @@ function toggleSpinner() {
 	update.classList.toggle("hide");
 }
 
+//-----------------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
 	printData();
-	getScores();
+	updateScores();
 
 	const update = document.getElementById("update-icon");
-	update.addEventListener("click", getScores);
+	update.addEventListener("click", updateScores);
 
 	//luxon.DateTime.fromFormat("20/11, 13:00", "dd/MM, hh:mm")
 });
