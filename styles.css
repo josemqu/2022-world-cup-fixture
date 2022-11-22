@@ -28,7 +28,7 @@
     height: 1.1rem;
 }
 
-.group-table {
+.group {
     max-width: 25rem;
 }
 
@@ -103,7 +103,7 @@ table {
     padding: 0rem 0.2rem 0rem 0.2rem !important;
 }
 
-.group-table table tr :nth-child(2) {
+.group table tr :nth-child(2) {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -140,6 +140,6 @@ tbody tr :nth-child(12) {
     /* padding-right: 0.1rem !important; */
 }
 
-.group-table .hide {
+.group .hide {
     height: 0% !important;
 }

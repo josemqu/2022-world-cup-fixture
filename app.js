@@ -712,7 +712,7 @@ const games = [
 ];
 
 const feedDisplay = document.querySelector("#feed");
-const groupTables = document.querySelectorAll(".group-table");
+const groupTables = document.querySelectorAll(".group");
 const groupTemplate = document.querySelector("#group-template").content;
 const teamTemplate = document.querySelector("#team-template").content;
 const gameTemplate = document.querySelector("#game-template").content;
@@ -773,12 +773,12 @@ const printData = () => {
 		fragment.appendChild(clone);
 		let groupTable = groupTables[i];
 		groupTable.querySelector(".table").appendChild(fragment);
-		printRows(groupTable, i);
+		printRows(groupTable, groupName, i);
 		printGames(groupTable, groupName);
 	});
 };
 
-const printRows = (groupTable, j) => {
+const printRows = (groupTable, groupName, j) => {
 	groupsArr[j].forEach((teamID, i) => {
 		const { flagClass, name } = teams[teamID];
 		teamTemplate.querySelector(".pos").textContent = i + 1;
@@ -791,6 +791,7 @@ const printRows = (groupTable, j) => {
 		fragment.appendChild(clone);
 	});
 	groupTable.querySelector("tbody").appendChild(fragment);
+	groupTable.id = groupName;
 };
 
 const printGames = (groupTable, groupName) => {
@@ -871,6 +872,9 @@ const getScores = (data) => {
 };
 
 const printStandings = (standings) => {
+	Object.keys(standings).forEach((group) => {
+		// const
+	});
 	console.log(standings);
 };
 
