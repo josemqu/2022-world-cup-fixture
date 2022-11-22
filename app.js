@@ -897,7 +897,6 @@ const getStandings = (scores) => {
 	});
 	let result = [];
 	standingsArr.reduce(function (res, value) {
-		console.log(value.name);
 		if (!res[value.name]) {
 			res[value.name] = {
 				id: teamsShortName[value.name].id,
@@ -917,18 +916,34 @@ const getStandings = (scores) => {
 		res[value.name].ga += value.ga;
 		return res;
 	}, {});
-	console.log(result);
+	const standings = result.map((el) => new Team(el));
 
-	const results = result.map((el) => new Team(el));
-	console.log(results);
+	// group standings by group
+	const standingsByGroup = groupBy(standings, "group");
+	console.log(standingsByGroup);
 
-	// group standings by team
-	console.log(result);
-	const standings = {};
-	result.map((el) => {
-		return (standings[el.name] = el);
+	Object.keys(standingsByGroup).forEach((group) => {
+		standingsByGroup[group] = sortArr(standingsByGroup[group]);
 	});
-	return standings;
+
+	return standingsByGroup;
+};
+
+const groupBy = (arr, key) => {
+	return arr.reduce(function (rv, x) {
+		(rv[x[key]] = rv[x[key]] || []).push(x);
+		return rv;
+	}, {});
+};
+
+const sortArr = (arr) => {
+	return arr.sort(
+		(a, b) =>
+			b.pts - a.pts ||
+			b.diff - a.diff ||
+			b.gf - a.gf ||
+			a.id.localeCompare(b.id)
+	);
 };
 
 function toggleSpinner() {
