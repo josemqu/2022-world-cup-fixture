@@ -766,14 +766,14 @@ const teamsShortName = convertArrayToObject(
 );
 
 const printData = () => {
-	Object.keys(groups).forEach((group, i) => {
+	Object.keys(groups).forEach((group, j) => {
 		const groupName = `Grupo ${group}`;
 		groupTemplate.querySelector(".group-name").textContent = groupName;
 		const clone = groupTemplate.cloneNode(true);
 		fragment.appendChild(clone);
-		let groupTable = groupTables[i];
+		let groupTable = groupTables[j];
 		groupTable.querySelector(".table").appendChild(fragment);
-		printRows(groupTable, groupName, i);
+		printRows(groupTable, groupName, j);
 		printGames(groupTable, groupName);
 	});
 };
@@ -782,10 +782,13 @@ const printRows = (groupTable, groupName, j) => {
 	groupsArr[j].forEach((teamID, i) => {
 		const { flagClass, name } = teams[teamID];
 		teamTemplate.querySelector(".pos").textContent = i + 1;
-		teamTemplate.querySelector(".team").innerText = name;
+		teamTemplate.querySelector(".pos").parentNode.classList.remove(`pos4`);
+		teamTemplate.querySelector(".pos").parentNode.classList.remove(`pos${i}`);
+		teamTemplate.querySelector(".pos").parentNode.classList.add(`pos${i + 1}`);
+		teamTemplate.querySelector(".id").innerText = name;
 		const iElement = document.createElement("i");
 		iElement.classList.add("flag", `${flagClass}`);
-		teamTemplate.querySelector(".team").prepend(iElement);
+		teamTemplate.querySelector(".id").prepend(iElement);
 
 		const clone = teamTemplate.cloneNode(true);
 		fragment.appendChild(clone);
@@ -873,9 +876,32 @@ const getScores = (data) => {
 
 const printStandings = (standings) => {
 	Object.keys(standings).forEach((group) => {
-		// const
+		const groupArr = standings[group];
+		const groupElement = document.getElementById(`${group}`);
+		console.log(groupArr);
+		for (let i = 0; i < groupArr.length; i++) {
+			const teamElement = groupElement.querySelector(`.pos${i + 1}`);
+			// console.log(groupArr[i].id);
+			console.table(groupArr[i]);
+			// console.log(...Object.keys(groupArr[i]));
+			// console.log(...Object.values(groupArr[i]));
+			Object.keys(groupArr[i]).forEach((key) => {
+				if (teamElement.querySelector(`.${key}`)) {
+					teamElement.querySelector(`.${key}`).textContent = groupArr[i][key];
+				} else {
+					return;
+				}
+			});
+			// groupArr.forEach((team, i) => {
+			// 	const teamElement = groupElement.querySelector(`.pos${i + 1}`);
+			// 	Object.keys(team).forEach((key) => {
+			// 		teamElement.querySelector(`.${key}`)
+			// 			? (teamElement.querySelector(`.${key}`).textContent = team[key])
+			// 			: false;
+			// 	});
+			// });
+		}
 	});
-	console.log(standings);
 };
 
 const getStandings = (scores) => {
