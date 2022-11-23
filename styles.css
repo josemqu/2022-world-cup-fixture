@@ -8,19 +8,30 @@
     display: none;
 }
 
+#update-icon {
+    /* align-self: center; */
+    height: 3rem;
+    cursor: pointer;
+    vertical-align: middle !important;
+}
+
+#update-icon::before {
+    vertical-align: 0px !important;
+
+}
+
 #update-icon.hide {
     display: none;
 }
 
-#update {
-    cursor: pointer;
-}
+#update {}
 
 .main-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 0.2rem solid #4F4F4F;
+    height: 3rem;
 }
 
 .country img {

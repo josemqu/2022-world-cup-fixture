@@ -882,24 +882,24 @@ const printStandings = (standings) => {
 		for (let i = 0; i < groupArr.length; i++) {
 			const teamElement = groupElement.querySelector(`.pos${i + 1}`);
 			// console.log(groupArr[i].id);
-			console.table(groupArr[i]);
+			// console.table(groupArr[i]);
 			// console.log(...Object.keys(groupArr[i]));
 			// console.log(...Object.values(groupArr[i]));
 			Object.keys(groupArr[i]).forEach((key) => {
 				if (teamElement.querySelector(`.${key}`)) {
 					teamElement.querySelector(`.${key}`).textContent = groupArr[i][key];
-				} else {
-					return;
+					if ((key = "id")) {
+						teamElement.querySelector(`.${key}`).textContent =
+							teams[groupArr[i][key]].name;
+						const iElement = document.createElement("i");
+						iElement.classList.add(
+							"flag",
+							`${teams[groupArr[i][key]].flagClass}`
+						);
+						teamElement.querySelector(`.${key}`).prepend(iElement);
+					}
 				}
 			});
-			// groupArr.forEach((team, i) => {
-			// 	const teamElement = groupElement.querySelector(`.pos${i + 1}`);
-			// 	Object.keys(team).forEach((key) => {
-			// 		teamElement.querySelector(`.${key}`)
-			// 			? (teamElement.querySelector(`.${key}`).textContent = team[key])
-			// 			: false;
-			// 	});
-			// });
 		}
 	});
 };
