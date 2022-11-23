@@ -42,6 +42,8 @@
 
 .group {
     max-width: 25rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
 }
 
 .games {
@@ -102,7 +104,7 @@ i.flag {
 }
 
 .group-name {
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
 }
 
 table {
@@ -154,4 +156,8 @@ tbody tr :nth-child(12) {
 
 .group .hide {
     height: 0% !important;
+}
+
+.large {
+    height: 100vh;
 }

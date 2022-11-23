@@ -861,10 +861,11 @@ const printScores = (scoresObj) => {
 
 const getScores = (data) => {
 	const scoresObj = {};
+	console.log(data);
 	data.forEach((score) => {
 		const scoreId = games.filter((game) => {
 			return (
-				score.homeGoals !== null &&
+				// score.homeGoals !== null &&
 				teams[game.homeTeam].shortName === score.homeTeam &&
 				teams[game.awayTeam].shortName === score.awayTeam
 			);
@@ -908,22 +909,41 @@ const getStandings = (scores) => {
 	console.log(scores);
 	const standingsArr = [];
 	Object.keys(scores).forEach((score) => {
-		standingsArr.push({
-			name: scores[score].homeTeam,
-			won: scores[score].homeGoals > scores[score].awayGoals ? 1 : 0,
-			draw: scores[score].homeGoals === scores[score].awayGoals ? 1 : 0,
-			loss: scores[score].homeGoals < scores[score].awayGoals ? 1 : 0,
-			gf: scores[score].homeGoals,
-			ga: scores[score].awayGoals,
-		});
-		standingsArr.push({
-			name: scores[score].awayTeam,
-			won: scores[score].homeGoals < scores[score].awayGoals ? 1 : 0,
-			draw: scores[score].homeGoals === scores[score].awayGoals ? 1 : 0,
-			loss: scores[score].homeGoals > scores[score].awayGoals ? 1 : 0,
-			gf: scores[score].awayGoals,
-			ga: scores[score].homeGoals,
-		});
+		if (scores[score].homeGoals !== null) {
+			standingsArr.push({
+				name: scores[score].homeTeam,
+				won: scores[score].homeGoals > scores[score].awayGoals ? 1 : 0,
+				draw: scores[score].homeGoals === scores[score].awayGoals ? 1 : 0,
+				loss: scores[score].homeGoals < scores[score].awayGoals ? 1 : 0,
+				gf: scores[score].homeGoals,
+				ga: scores[score].awayGoals,
+			});
+			standingsArr.push({
+				name: scores[score].awayTeam,
+				won: scores[score].homeGoals < scores[score].awayGoals ? 1 : 0,
+				draw: scores[score].homeGoals === scores[score].awayGoals ? 1 : 0,
+				loss: scores[score].homeGoals > scores[score].awayGoals ? 1 : 0,
+				gf: scores[score].awayGoals,
+				ga: scores[score].homeGoals,
+			});
+		} else {
+			standingsArr.push({
+				name: scores[score].homeTeam,
+				won: 0,
+				draw: 0,
+				loss: 0,
+				gf: 0,
+				ga: 0,
+			});
+			standingsArr.push({
+				name: scores[score].awayTeam,
+				won: 0,
+				draw: 0,
+				loss: 0,
+				gf: 0,
+				ga: 0,
+			});
+		}
 	});
 	let result = [];
 	standingsArr.reduce(function (res, value) {
