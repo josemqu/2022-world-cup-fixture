@@ -1,4 +1,5 @@
 import Team from "./model.js";
+import Storage from "./storage.js";
 
 const teams = {
 	QA: {
@@ -750,6 +751,8 @@ const groupsArr = [
 	groupDataH,
 ];
 
+const alphabet = "ABCDEFGH";
+
 const convertArrayToObject = (array, key) => {
 	const initialValue = {};
 	return array.reduce((obj, item) => {
@@ -766,8 +769,8 @@ const teamsShortName = convertArrayToObject(
 );
 
 const printData = () => {
-	Object.keys(groups).forEach((group, j) => {
-		const groupName = `Grupo ${group}`;
+	groupsArr.forEach((group, j) => {
+		const groupName = `Grupo ${alphabet[j]}`;
 		groupTemplate.querySelector(".group-name").textContent = groupName;
 		const clone = groupTemplate.cloneNode(true);
 		fragment.appendChild(clone);
@@ -872,6 +875,8 @@ const getScores = (data) => {
 		})[0]?.matchId;
 		if (scoreId) scoresObj[scoreId] = score;
 	});
+	console.log(scoresObj);
+	Storage.save(scoresObj, "scores");
 	return scoresObj;
 };
 
@@ -975,7 +980,7 @@ const getStandings = (scores) => {
 	Object.keys(standingsByGroup).forEach((group) => {
 		standingsByGroup[group] = sortArr(standingsByGroup[group]);
 	});
-
+	Storage.save(standingsByGroup, "standings");
 	return standingsByGroup;
 };
 
@@ -1006,6 +1011,12 @@ function toggleSpinner() {
 //-----------------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
 	printData();
+
+	const scores = Storage.get("scores");
+	const standings = Storage.get("standings");
+	printScores(scores);
+	printStandings(standings);
+
 	updateScores();
 
 	const update = document.getElementById("update-icon");

@@ -24,8 +24,6 @@
     display: none;
 }
 
-#update {}
-
 .main-header {
     display: flex;
     justify-content: space-between;
@@ -60,11 +58,6 @@
     border-left: white solid 2px;
     border-right: white solid 2px;
     padding: 0px;
-}
-
-.games tr td {
-    /* background: -webkit-linear-gradient(#EFEFEF, #FFF, #FFF); */
-
 }
 
 .games tr :nth-child(1) {
@@ -107,15 +100,6 @@ i.flag {
     border: 0rem !important;
     margin-left: 0.2rem !important;
     margin-right: 0.2rem !important;
-}
-
-.group-name {
-    /* margin-top: 1rem; */
-}
-
-table {
-    /* max-width: 28rem; */
-    /* transition: all ease-out 200ms; */
 }
 
 .standings-table th,
