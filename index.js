@@ -19,6 +19,7 @@ app.get("/results", (req, res) => {
 			const $ = cheerio.load(html);
 			const games = [];
 			$(".grtr", html).each(function () {
+				//primera fase
 				const group = titleCase(
 					$(this)
 						.parent()
@@ -43,7 +44,25 @@ app.get("/results", (req, res) => {
 					awayTeam,
 					homeGoals,
 					awayGoals,
-					result,
+					state,
+				});
+			});
+			$("#fixturein", html).each(function () {
+				//segunda fase
+				const group = "-";
+				const date = $(this).find(".diapart").text();
+				const homeTeam = $(this).find(".datoequipo")[0].firstChild.nodeValue;
+				const awayTeam = $(this).find(".datoequipo")[1].firstChild.nodeValue;
+				const homeGoals = parseInt($($(this).find(".game-r1")[1]).text());
+				const awayGoals = parseInt($($(this).find(".game-r2")[1]).text());
+				const state = $(this).children(":nth-child(2)").attr("class");
+				games.push({
+					group,
+					date,
+					homeTeam,
+					awayTeam,
+					homeGoals,
+					awayGoals,
 					state,
 				});
 			});

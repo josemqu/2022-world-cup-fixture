@@ -24,17 +24,15 @@
 
 <body>
 
-    <div class="container">
+    <div class="container sticky-top">
         <div class="container main-header sticky-top bg-primary text-light">
-            <div class="title h1 mt-2 mx-1">PRIMERA FASE</div>
+            <div class="title h1 mt-2">PRIMERA FASE</div>
             <div id="spinner-div" class="d-flex m-1">
                 <div id="spinner" class="spinner-border text-light hide" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
             </div>
-            <!-- <div id="update-icon"> -->
             <i id="update-icon" class="bi bi-arrow-repeat" style="font-size: 2.4rem;" data-bs-toggle="tooltip" data-bs-placement="top" title="Actualizar"></i>
-            <!-- </div> -->
         </div>
         <div class="row justify-content-evenly">
             <div class="group col">
@@ -110,7 +108,7 @@
         </div>
         <div id="feed"></div>
         <div class="container main-header sticky-top bg-primary text-light">
-            <div class="title h1 mt-2 mx-1">SEGUNDA FASE</div>
+            <div class="title h1 mt-2">SEGUNDA FASE</div>
             <i id="update-icon" class="bi bi-arrow-repeat" style="font-size: 2.4rem;" data-bs-toggle="tooltip" data-bs-placement="top" title="Actualizar"></i>
         </div>
         <div class="large container text-center">
@@ -123,11 +121,11 @@
                                 <span class="date">Sab 3/12, 12:00</span>
                                 <table class="game">
                                     <tbody>
-                                        <tr>
-                                            <td class="home-team"><i class="flag"></i>1A</td>
+                                        <tr id="m49">
+                                            <td class="home-team"><i class="flag"></i>1°GA</td>
                                             <td class="home-goals">0</td>
                                             <td class="away-goals">0</td>
-                                            <td class="away-team">2B <i class="flag"></i></td>
+                                            <td class="away-team">2°GB <i class="flag"></i></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -136,11 +134,11 @@
                                 <span class="date">Sab 3/12, 16:00</span>
                                 <table class="game">
                                     <tbody>
-                                        <tr>
-                                            <td class="home-team"><i class="flag"></i>1C</td>
+                                        <tr id="m50">
+                                            <td class="home-team"><i class="flag"></i>1°GC</td>
                                             <td class="home-goals">0</td>
                                             <td class="away-goals">0</td>
-                                            <td class="away-team">2D <i class="flag"></i></td>
+                                            <td class="away-team">2°GD <i class="flag"></i></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -149,11 +147,11 @@
                                 <span class="date">Lun 5/12, 12:00</span>
                                 <table class="game">
                                     <tbody>
-                                        <tr>
-                                            <td class="home-team"><i class="flag"></i>1E</td>
+                                        <tr id="m53">
+                                            <td class="home-team"><i class="flag"></i>1°GE</td>
                                             <td class="home-goals">0</td>
                                             <td class="away-goals">0</td>
-                                            <td class="away-team">2F <i class="flag"></i></td>
+                                            <td class="away-team">2°GF <i class="flag"></i></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -162,11 +160,11 @@
                                 <span class="date">Lun 5/12, 16:00</span>
                                 <table class="game">
                                     <tbody>
-                                        <tr>
-                                            <td class="home-team"><i class="flag"></i>1G</td>
+                                        <tr id="m54">
+                                            <td class="home-team"><i class="flag"></i>1°GG</td>
                                             <td class="home-goals">0</td>
                                             <td class="away-goals">0</td>
-                                            <td class="away-team">2H <i class="flag"></i></td>
+                                            <td class="away-team">2°GH <i class="flag"></i></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -175,11 +173,11 @@
                                 <span class="date">Dom 4/12, 16:00</span>
                                 <table class="game">
                                     <tbody>
-                                        <tr>
-                                            <td class="home-team"><i class="flag"></i>1B</td>
+                                        <tr id="m51">
+                                            <td class="home-team"><i class="flag"></i>1°GB</td>
                                             <td class="home-goals">0</td>
                                             <td class="away-goals">0</td>
-                                            <td class="away-team">2A <i class="flag"></i></td>
+                                            <td class="away-team">2°GA <i class="flag"></i></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -188,11 +186,11 @@
                                 <span class="date">Dom 4/12, 12:00</span>
                                 <table class="game">
                                     <tbody>
-                                        <tr>
-                                            <td class="home-team"><i class="flag"></i>1D</td>
+                                        <tr id="m52">
+                                            <td class="home-team"><i class="flag"></i>1°GD</td>
                                             <td class="home-goals">0</td>
                                             <td class="away-goals">0</td>
-                                            <td class="away-team">2C <i class="flag"></i></td>
+                                            <td class="away-team">2°GC <i class="flag"></i></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -201,11 +199,11 @@
                                 <span class="date">Mar 6/12, 12:00</span>
                                 <table class="game">
                                     <tbody>
-                                        <tr>
-                                            <td class="home-team"><i class="flag"></i>1F</td>
+                                        <tr id="m55">
+                                            <td class="home-team"><i class="flag"></i>1°GF</td>
                                             <td class="home-goals">0</td>
                                             <td class="away-goals">0</td>
-                                            <td class="away-team">2E <i class="flag"></i></td>
+                                            <td class="away-team">2°GE <i class="flag"></i></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -214,11 +212,11 @@
                                 <span class="date">Mar 6/12, 16:00</span>
                                 <table class="game">
                                     <tbody>
-                                        <tr>
-                                            <td class="home-team"><i class="flag"></i>1H</td>
+                                        <tr id="m56">
+                                            <td class="home-team"><i class="flag"></i>1°GH</td>
                                             <td class="home-goals">0</td>
                                             <td class="away-goals">0</td>
-                                            <td class="away-team">2G <i class="flag"></i></td>
+                                            <td class="away-team">2°GG <i class="flag"></i></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -234,7 +232,7 @@
                                 <span class="date">Vie 9/12, 16:00</span>
                                 <table class="game">
                                     <tbody>
-                                        <tr>
+                                        <tr id="m57">
                                             <td class="home-team"><i class="flag"></i>1A/2B</td>
                                             <td class="home-goals">0</td>
                                             <td class="away-goals">0</td>
@@ -247,7 +245,7 @@
                                 <span class="date">Vie 9/12, 12:00</span>
                                 <table class="game">
                                     <tbody>
-                                        <tr>
+                                        <tr id="m58">
                                             <td class="home-team"><i class="flag"></i>1E/2F</td>
                                             <td class="home-goals">0</td>
                                             <td class="away-goals">0</td>
@@ -260,7 +258,7 @@
                                 <span class="date">Sab 10/12, 16:00</span>
                                 <table class="game">
                                     <tbody>
-                                        <tr>
+                                        <tr id="m59">
                                             <td class="home-team"><i class="flag"></i>1B/2A</td>
                                             <td class="home-goals">0</td>
                                             <td class="away-goals">0</td>
@@ -273,7 +271,7 @@
                                 <span class="date">Sab 10, 12:00</span>
                                 <table class="game">
                                     <tbody>
-                                        <tr>
+                                        <tr id="m60">
                                             <td class="home-team"><i class="flag"></i>1F/2E</td>
                                             <td class="home-goals">0</td>
                                             <td class="away-goals">0</td>
@@ -287,18 +285,18 @@
                 </div>
                 <div class="col ">
                     <div class="grid-col">
-                        <div class="h5">Semifinal</div>
+                        <div class="h5">Semifinales</div>
                         <div class="matches d-flex justify-content-around">
 
                             <div class="match-container">
                                 <span class="date">Mar 13/12, 16:00</span>
                                 <table class="game">
                                     <tbody>
-                                        <tr>
-                                            <td class="home-team"><i class="flag"></i>Q1</td>
+                                        <tr id="m61">
+                                            <td class=" home-team"><i class="flag"></i>GQ1</td>
                                             <td class="home-goals">0</td>
                                             <td class="away-goals">0</td>
-                                            <td class="away-team">Q2 <i class="flag"></i></td>
+                                            <td class="away-team">GQ2 <i class="flag"></i></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -307,11 +305,11 @@
                                 <span class="date">Mie 14/12, 16:00</span>
                                 <table class="game">
                                     <tbody>
-                                        <tr>
-                                            <td class="home-team"><i class="flag"></i>Q3</td>
+                                        <tr id="m62">
+                                            <td class=" home-team"><i class="flag"></i>GQ3</td>
                                             <td class="home-goals">0</td>
                                             <td class="away-goals">0</td>
-                                            <td class="away-team">Q4 <i class="flag"></i></td>
+                                            <td class="away-team">GQ4 <i class="flag"></i></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -328,7 +326,7 @@
                                 <table class="game">
                                     <tbody>
                                         <tr>
-                                            <td class="home-team"><i class="flag"></i>SF1</td>
+                                            <td class=" home-team"><i class="flag"></i>SF1</td>
                                             <td class="home-goals">0</td>
                                             <td class="away-goals">0</td>
                                             <td class="away-team">SF2 <i class="flag"></i></td>
@@ -338,15 +336,15 @@
                             </div>
                             <div>
                                 <div class="h5 invisible">3er puesto</div>
-                                <div class="match-container">
-                                    <span class="date">Dom 8/12, 12:00</span>
+                                <div class="match-container final">
+                                    <span class="date">Dom 18/12, 12:00</span>
                                     <table class="game">
                                         <tbody>
-                                            <tr>
-                                                <td class="home-team"><i class="flag"></i>SF1</td>
+                                            <tr id="m64">
+                                                <td class=" home-team"><i class="flag"></i>GSF1</td>
                                                 <td class="home-goals">0</td>
                                                 <td class="away-goals">0</td>
-                                                <td class="away-team">SF2 <i class="flag"></i></td>
+                                                <td class="away-team">GSF2 <i class="flag"></i></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -355,14 +353,14 @@
                             <div>
                                 <div class="h5">3er puesto</div>
                                 <div class="match-container">
-                                    <span class="date">Vie 2/12, 16:00</span>
+                                    <span class="date">Sab 17/12, 12:00</span>
                                     <table class="game">
                                         <tbody>
-                                            <tr>
-                                                <td class="home-team"><i class="flag"></i>SF1</td>
+                                            <tr id="m63">
+                                                <td class="home-team"><i class="flag"></i>PSF1</td>
                                                 <td class="home-goals">0</td>
                                                 <td class="away-goals">0</td>
-                                                <td class="away-team">SF2 <i class="flag"></i></td>
+                                                <td class="away-team">PSF2 <i class="flag"></i></td>
                                             </tr>
                                         </tbody>
                                     </table>

@@ -854,6 +854,7 @@ const updateScores = async () => {
 const printScores = (scoresObj) => {
 	Object.keys(scoresObj).forEach((score) => {
 		const gameElement = document.getElementById(score);
+		gameElement.classList.remove("grres0");
 		gameElement.classList.remove("grres1");
 		gameElement.classList.add(scoresObj[score].state);
 		gameElement.querySelector(".home-goals").textContent =

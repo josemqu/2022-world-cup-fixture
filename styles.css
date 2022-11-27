@@ -1,4 +1,7 @@
-* {
+*,
+*::before,
+*::after,
+.main {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -6,10 +9,6 @@
 
 body {
     background-color: #f1f1f1;
-}
-
-table tr {
-    background-color: white;
 }
 
 #spinner.hide {
@@ -33,12 +32,13 @@ table tr {
 }
 
 .main-header {
+    /* margin: 0; */
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 0.2rem solid #4F4F4F;
     height: 3rem;
-    background-color: mintcream;
+    /* background-color: mintcream; */
 }
 
 .country img {
@@ -48,8 +48,7 @@ table tr {
 
 .group {
     max-width: 25rem;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
+    margin: 1rem 0.2rem 2rem 0.2rem;
     background-color: #ffffff;
     padding: 1em;
     border: 1px solid transparent;
@@ -69,8 +68,8 @@ table tr {
     height: 1.3rem;
     font-size: 0.75rem;
     vertical-align: middle;
-    border-left: white solid 2px;
-    border-right: white solid 2px;
+    /* border: white solid 2px; */
+    /* border-right: white solid 2px; */
     padding: 0px;
 }
 
@@ -90,7 +89,9 @@ table tr {
     text-align: center;
     font-weight: 500;
     font-size: 1rem;
-    background: -webkit-linear-gradient(#FFF, #FFF, #EFEFEF);
+    border: white solid 2px;
+    /* background: -webkit-linear-gradient(#FFF, #FFF, #EFEFEF); */
+    background: #EFEFEF;
     /* padding: 0;
     margin: 0; */
 }
@@ -98,7 +99,7 @@ table tr {
 .games tr :nth-child(5) {
     width: 20%;
     text-align: right;
-    border-right: 0.2rem solid transparent;
+    /* border-right: 0.2rem solid transparent; */
 }
 
 .grres1 :nth-child(3),
@@ -107,7 +108,7 @@ table tr {
 }
 
 .grres1 {
-    background-color: rgb(243, 243, 243);
+    /* background-color: rgb(243, 243, 243); */
 }
 
 i.flag {
@@ -135,7 +136,7 @@ i.flag {
 
 .standings-table tbody tr:nth-child(1) td,
 .standings-table tbody tr:nth-child(2) td {
-    background-color: rgb(240, 250, 240);
+    background-color: mintcream;
     font-weight: 500;
 }
 
@@ -163,7 +164,7 @@ tbody tr :nth-child(12) {
 }
 
 .large {
-    height: 100vh;
+    height: 95vh;
 }
 
 .second-round {
@@ -177,7 +178,7 @@ tbody tr :nth-child(12) {
 }
 
 .grid-col {
-    max-width: 25rem;
+    /* max-width: 25rem; */
     /* margin-top: 1rem; */
     height: 100%;
     /*margin-bottom: 2rem;
@@ -214,15 +215,14 @@ tbody tr :nth-child(12) {
     height: 1.3rem;
     font-size: 0.75rem;
     vertical-align: middle;
-    border-left: white solid 2px;
-    border-right: white solid 2px;
+    /* border-left: white solid 2px;
+    border-right: white solid 2px; */
     padding: 0px;
 }
 
 .match-container tr :nth-child(1) {
     width: 20%;
     text-align: left;
-    border-right: 0.2rem solid transparent;
 }
 
 .match-container tr :nth-child(2),
@@ -231,7 +231,8 @@ tbody tr :nth-child(12) {
     text-align: center;
     font-weight: 500;
     font-size: 1rem;
-    background: -webkit-linear-gradient(#FFF, #FFF, #EFEFEF);
+    border: white solid 2px;
+    background: #EFEFEF;
     /* padding: 0;
     margin: 0; */
 }
@@ -239,7 +240,6 @@ tbody tr :nth-child(12) {
 .match-container tr :nth-child(4) {
     width: 20%;
     text-align: right;
-    border-right: 0.2rem solid transparent;
 }
 
 @media (max-width: 1400px) {
