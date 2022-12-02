@@ -1010,6 +1010,47 @@ function toggleSpinner() {
 	update.classList.toggle("hide");
 }
 
+const printRoundOf16 = () => {
+	const standings = Storage.get("standings");
+	console.log(standings);
+
+	const matches = {};
+	matches["m49"] = [standings["Grupo A"][0].id];
+	matches["m49"].push(standings["Grupo B"][1].id);
+	matches["m50"] = [standings["Grupo C"][0].id];
+	matches["m50"].push(standings["Grupo D"][1].id);
+	matches["m51"] = [standings["Grupo B"][0].id];
+	matches["m51"].push(standings["Grupo A"][1].id);
+	matches["m52"] = [standings["Grupo D"][0].id];
+	matches["m52"].push(standings["Grupo C"][1].id);
+	matches["m53"] = [standings["Grupo E"][0].id];
+	matches["m53"].push(standings["Grupo F"][1].id);
+	matches["m54"] = [standings["Grupo G"][0].id];
+	matches["m54"].push(standings["Grupo H"][1].id);
+	matches["m55"] = [standings["Grupo F"][0].id];
+	matches["m55"].push(standings["Grupo E"][1].id);
+	matches["m56"] = [standings["Grupo H"][0].id];
+	matches["m56"].push(standings["Grupo G"][1].id);
+
+	console.log(matches);
+
+	Object.keys(matches).forEach((match) => {
+		const matchElement = document.getElementById(match);
+		matchElement.querySelector(".home-team").textContent =
+			" " + teams[matches[match][0]].shortName;
+		matchElement.querySelector(".away-team").textContent =
+			teams[matches[match][1]].shortName;
+		const iHomeElement = document.createElement("i");
+		const iAwayElement = document.createElement("i");
+		const homeFlagClass = teams[matches[match][0]].flagClass;
+		const awayFlagClass = teams[matches[match][1]].flagClass;
+		iHomeElement.classList.add("flag", `${homeFlagClass}`);
+		iAwayElement.classList.add("flag", `${awayFlagClass}`);
+		matchElement.querySelector(".home-team").prepend(iHomeElement);
+		matchElement.querySelector(".away-team").append(iAwayElement);
+	});
+};
+
 //-----------------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
 	printData();
@@ -1020,7 +1061,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	printStandings(standings);
 
 	updateScores();
-
+	printRoundOf16();
 	const update = document.getElementById("update-icon");
 	update.addEventListener("click", updateScores);
 
