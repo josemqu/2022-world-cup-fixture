@@ -1005,10 +1005,14 @@ const sortArr = (arr) => {
 };
 
 function toggleSpinner() {
-	const spinner = document.getElementById("spinner");
-	const update = document.getElementById("update-icon");
-	spinner.classList.toggle("hide");
-	update.classList.toggle("hide");
+	const spinners = document.querySelectorAll(".spinner");
+	const updates = document.querySelectorAll(".update-icon");
+	spinners.forEach((spinner) => {
+		spinner.classList.toggle("hide");
+	});
+	updates.forEach((update) => {
+		update.classList.toggle("hide");
+	});
 }
 
 const printRoundOf16 = () => {
@@ -1063,8 +1067,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	updateScores();
 	printRoundOf16();
-	const update = document.getElementById("update-icon");
-	update.addEventListener("click", updateScores);
+	const updateButtons = document.querySelectorAll(".update-icon");
+	updateButtons.forEach((update) =>
+		update.addEventListener("click", updateScores)
+	);
 
 	//luxon.DateTime.fromFormat("20/11, 13:00", "dd/MM, hh:mm")
 });
