@@ -1069,11 +1069,20 @@ document.addEventListener("DOMContentLoaded", () => {
 	printRoundOf16();
 	const updateButtons = document.querySelectorAll(".update-icon");
 	updateButtons.forEach((update) =>
-		update.addEventListener("click", updateScores)
+		update.addEventListener("click", () => {
+			updateScores();
+			hideTooltips();
+		})
 	);
 
 	//luxon.DateTime.fromFormat("20/11, 13:00", "dd/MM, hh:mm")
 });
+
+const hideTooltips = () => {
+	setTimeout(() => {
+		tooltipList.forEach((tooltip) => tooltip.hide());
+	}, 1000);
+};
 
 var tooltipTriggerList = [].slice.call(
 	document.querySelectorAll('[data-bs-toggle="tooltip"]')
