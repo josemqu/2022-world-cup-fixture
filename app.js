@@ -848,6 +848,7 @@ const updateScores = async () => {
 			// return data;
 		})
 		.catch((err) => console.error(err));
+	printRoundOf16();
 	toggleSpinner();
 };
 
