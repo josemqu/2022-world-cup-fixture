@@ -267,7 +267,7 @@ tbody tr :nth-child(12) {
     }
 
     .match-item.match-item-right:has(.final)::after {
-        border-bottom: grey solid 2px;
+        border-bottom: #bbb solid 2px;
         display: block;
     }
 
@@ -303,10 +303,9 @@ tbody tr :nth-child(12) {
     width: 3rem;
     height: 3rem;
     position: absolute;
-    /* border: solid red 2px; */
-    border-right: solid grey 2px;
-    border-top: solid grey 2px;
-    border-top-right-radius: 10px;
+    border-right: solid #bbb 2px;
+    border-top: solid #bbb 2px;
+    border-top-right-radius: 20px;
 }
 
 .match-item1:nth-child(even)::before {
@@ -320,10 +319,9 @@ tbody tr :nth-child(12) {
     width: 3rem;
     height: 3rem;
     position: absolute;
-    /* border: solid blue 2px; */
-    border-right: solid grey 2px;
-    border-bottom: solid grey 2px;
-    border-bottom-right-radius: 10px;
+    border-right: solid #bbb 2px;
+    border-bottom: solid #bbb 2px;
+    border-bottom-right-radius: 20px;
 }
 
 .match-item-right::after {
@@ -338,10 +336,7 @@ tbody tr :nth-child(12) {
     width: 3.5rem;
     height: 1rem;
     position: absolute;
-    /* border: solid red 2px; */
-    /* border-left: solid grey 2px; */
-    border-bottom: solid grey 2px;
-    /* border-bottom-left-radius: 10px; */
+    border-bottom: solid #bbb 2px;
 }
 
 .match-item2:nth-child(odd)::before {
@@ -355,10 +350,9 @@ tbody tr :nth-child(12) {
     width: 3rem;
     height: 6rem;
     position: absolute;
-    /* border: solid red 2px; */
-    border-right: solid grey 2px;
-    border-top: solid grey 2px;
-    border-top-right-radius: 10px;
+    border-right: solid #bbb 2px;
+    border-top: solid #bbb 2px;
+    border-top-right-radius: 20px;
 }
 
 .match-item2:nth-child(even)::before {
@@ -372,10 +366,9 @@ tbody tr :nth-child(12) {
     width: 3rem;
     height: 6rem;
     position: absolute;
-    /* border: solid blue 2px; */
-    border-right: solid grey 2px;
-    border-bottom: solid grey 2px;
-    border-bottom-right-radius: 10px;
+    border-right: solid #bbb 2px;
+    border-bottom: solid #bbb 2px;
+    border-bottom-right-radius: 20px;
 }
 
 .match-item3:nth-child(odd)::before {
@@ -389,10 +382,9 @@ tbody tr :nth-child(12) {
     width: 3rem;
     height: 12rem;
     position: absolute;
-    /* border: solid red 2px; */
-    border-right: solid grey 2px;
-    border-top: solid grey 2px;
-    border-top-right-radius: 10px;
+    border-right: solid #bbb 2px;
+    border-top: solid #bbb 2px;
+    border-top-right-radius: 20px;
 }
 
 .match-item3:nth-child(even)::before {
@@ -406,8 +398,7 @@ tbody tr :nth-child(12) {
     width: 3rem;
     height: 12rem;
     position: absolute;
-    /* border: solid blue 2px; */
-    border-right: solid grey 2px;
-    border-bottom: solid grey 2px;
-    border-bottom-right-radius: 10px;
+    border-right: solid #bbb 2px;
+    border-bottom: solid #bbb 2px;
+    border-bottom-right-radius: 20px;
 }
