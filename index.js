@@ -51,8 +51,14 @@ app.get("/results", (req, res) => {
 				//segunda fase
 				const group = "-";
 				const date = $(this).find(".diapart").text();
-				const homeTeam = $(this).find(".datoequipo")[0].firstChild.nodeValue;
-				const awayTeam = $(this).find(".datoequipo")[1].firstChild.nodeValue;
+				const homeTeam = $(this)
+					.find(".datoequipo")[0]
+					.firstChild.nodeValue.slice(0, 3)
+					.toUpperCase();
+				const awayTeam = $(this)
+					.find(".datoequipo")[1]
+					.firstChild.nodeValue.slice(0, 3)
+					.toUpperCase();
 				const homeGoals = parseInt($($(this).find(".game-r1")[1]).text());
 				const awayGoals = parseInt($($(this).find(".game-r2")[1]).text());
 				const state = $(this).children(":nth-child(2)").attr("class");

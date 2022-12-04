@@ -258,6 +258,14 @@ tbody tr :nth-child(12) {
 
 @media (max-width: 991px) {
 
+    .main-header {
+        margin-bottom: 1rem;
+    }
+
+    .group {
+        margin-top: 0;
+    }
+
     .match-item.match-item-right.match-item3::before {
         height: 5.5rem;
     }

@@ -802,7 +802,6 @@ const printRows = (groupTable, groupName, j) => {
 
 const printGames = (groupTable, groupName) => {
 	const groupGames = games.filter((game) => game.group === groupName);
-	// console.log(groupGames);
 	groupGames.forEach((game) => {
 		const { matchId, date, homeTeam, awayTeam, homeGoals, awayGoals } = game;
 		const homeFlagClass = teams[homeTeam].flagClass;
@@ -844,8 +843,6 @@ const updateScores = async () => {
 			const standings = getStandings(scores);
 			printScores(scores);
 			printStandings(standings);
-			// console.log(data);
-			// return data;
 		})
 		.catch((err) => console.error(err));
 	printRoundOf16();
@@ -867,7 +864,7 @@ const printScores = (scoresObj) => {
 
 const getScores = (data) => {
 	const scoresObj = {};
-	console.log(data);
+	console.table(data);
 	data.forEach((score) => {
 		const scoreId = games.filter((game) => {
 			return (
@@ -887,13 +884,8 @@ const printStandings = (standings) => {
 	Object.keys(standings).forEach((group) => {
 		const groupArr = standings[group];
 		const groupElement = document.getElementById(`${group}`);
-		console.log(groupArr);
 		for (let i = 0; i < groupArr.length; i++) {
 			const teamElement = groupElement.querySelector(`.pos${i + 1}`);
-			// console.log(groupArr[i].id);
-			// console.table(groupArr[i]);
-			// console.log(...Object.keys(groupArr[i]));
-			// console.log(...Object.values(groupArr[i]));
 			Object.keys(groupArr[i]).forEach((key) => {
 				if (teamElement.querySelector(`.${key}`)) {
 					teamElement.querySelector(`.${key}`).textContent = groupArr[i][key];
@@ -914,7 +906,6 @@ const printStandings = (standings) => {
 };
 
 const getStandings = (scores) => {
-	console.log(scores);
 	const standingsArr = [];
 	Object.keys(scores).forEach((score) => {
 		if (scores[score].homeGoals !== null) {
@@ -978,8 +969,6 @@ const getStandings = (scores) => {
 
 	// group standings by group
 	const standingsByGroup = groupBy(standings, "group");
-	console.log(standingsByGroup);
-
 	Object.keys(standingsByGroup).forEach((group) => {
 		standingsByGroup[group] = sortArr(standingsByGroup[group]);
 	});
@@ -1017,8 +1006,6 @@ function toggleSpinner() {
 
 const printRoundOf16 = () => {
 	const standings = Storage.get("standings");
-	console.log(standings);
-
 	const matches = {};
 	matches["m49"] = [standings["Grupo A"][0].id];
 	matches["m49"].push(standings["Grupo B"][1].id);
@@ -1037,8 +1024,6 @@ const printRoundOf16 = () => {
 	matches["m56"] = [standings["Grupo H"][0].id];
 	matches["m56"].push(standings["Grupo G"][1].id);
 
-	console.log(matches);
-
 	Object.keys(matches).forEach((match) => {
 		const matchElement = document.getElementById(match);
 		matchElement.querySelector(".home-team").textContent =
@@ -1054,6 +1039,39 @@ const printRoundOf16 = () => {
 		matchElement.querySelector(".home-team").prepend(iHomeElement);
 		matchElement.querySelector(".away-team").append(iAwayElement);
 	});
+};
+
+const finalMatches = {
+	m57: ["m49", "m50"],
+	m58: ["m53", "m54"],
+	m59: ["m51", "m52"],
+	m60: ["m55", "m56"],
+	m61: ["m57", "m58"],
+	m62: ["m59", "m60"],
+	m63: ["m61", "m62"],
+	m64: ["m61", "m62"],
+};
+
+const getWinner = (homeTeam, awayTeam, homeGoals, awayGoals) => {
+	const winner = homeGoals > awayGoals ? homeTeam : awayTeam;
+	return winner;
+};
+
+const getScore = (matchId) => {
+	const matchElement = document.getElementById(matchId);
+	const homeTeam = matchElement.children()[0].textContent;
+	const homeGoals = matchElement.children()[1].textContent;
+	const awayGoals = matchElement.children()[2].textContent;
+	const awayTeam = matchElement.children()[3].textContent;
+	return { homeTeam, homeGoals, awayGoals, awayTeam };
+};
+
+const getOpponents = (matchId) => {
+	const firstMatch = getScore(finalMatches[matchId][0]);
+	const secondMatch = getScore(finalMatches[matchId][1]);
+	const homeTeam = getWinner(firstMatch);
+	const awayTeam = getWinner(secondMatch);
+	return { homeTeam, awayTeam };
 };
 
 //-----------------------------------------------------------------------------
