@@ -229,6 +229,8 @@ const teams = {
 	},
 };
 
+console.log(teams);
+
 const games = [
 	{
 		matchId: "m01",
@@ -768,6 +770,8 @@ const teamsShortName = convertArrayToObject(
 	"shortName"
 );
 
+console.log(teamsShortName);
+
 const printData = () => {
 	groupsArr.forEach((group, j) => {
 		const groupName = `Grupo ${alphabet[j]}`;
@@ -840,8 +844,8 @@ const updateScores = async () => {
 		})
 		.then((data) => {
 			const scores = getScores(data);
-			const standings = getStandings(scores);
-			printScores(scores);
+			const standings = getStandings(scores.data);
+			printScores(scores.data);
 			printStandings(standings);
 		})
 		.catch((err) => console.error(err));
@@ -908,28 +912,39 @@ const printStandings = (standings) => {
 };
 
 const getStandings = (scores) => {
+	const groupScores = scores.filter((score) => score.group != "-");
+	console.log(
+		"🚀 ~ file: app.js:916 ~ getStandings ~ groupScores",
+		groupScores
+	);
 	const standingsArr = [];
-	Object.keys(scores).forEach((score) => {
-		if (scores[score].homeGoals !== null) {
+	Object.keys(groupScores).forEach((score) => {
+		if (groupScores[score].homeGoals !== null) {
 			standingsArr.push({
-				name: scores[score].homeTeam,
-				won: scores[score].homeGoals > scores[score].awayGoals ? 1 : 0,
-				draw: scores[score].homeGoals === scores[score].awayGoals ? 1 : 0,
-				loss: scores[score].homeGoals < scores[score].awayGoals ? 1 : 0,
-				gf: scores[score].homeGoals,
-				ga: scores[score].awayGoals,
+				name: groupScores[score].homeTeam,
+				won:
+					groupScores[score].homeGoals > groupScores[score].awayGoals ? 1 : 0,
+				draw:
+					groupScores[score].homeGoals === groupScores[score].awayGoals ? 1 : 0,
+				loss:
+					groupScores[score].homeGoals < groupScores[score].awayGoals ? 1 : 0,
+				gf: groupScores[score].homeGoals,
+				ga: groupScores[score].awayGoals,
 			});
 			standingsArr.push({
-				name: scores[score].awayTeam,
-				won: scores[score].homeGoals < scores[score].awayGoals ? 1 : 0,
-				draw: scores[score].homeGoals === scores[score].awayGoals ? 1 : 0,
-				loss: scores[score].homeGoals > scores[score].awayGoals ? 1 : 0,
-				gf: scores[score].awayGoals,
-				ga: scores[score].homeGoals,
+				name: groupScores[score].awayTeam,
+				won:
+					groupScores[score].homeGoals < groupScores[score].awayGoals ? 1 : 0,
+				draw:
+					groupScores[score].homeGoals === groupScores[score].awayGoals ? 1 : 0,
+				loss:
+					groupScores[score].homeGoals > groupScores[score].awayGoals ? 1 : 0,
+				gf: groupScores[score].awayGoals,
+				ga: groupScores[score].homeGoals,
 			});
 		} else {
 			standingsArr.push({
-				name: scores[score].homeTeam,
+				name: groupScores[score].homeTeam,
 				won: 0,
 				draw: 0,
 				loss: 0,
@@ -937,7 +952,7 @@ const getStandings = (scores) => {
 				ga: 0,
 			});
 			standingsArr.push({
-				name: scores[score].awayTeam,
+				name: groupScores[score].awayTeam,
 				won: 0,
 				draw: 0,
 				loss: 0,
@@ -1008,49 +1023,50 @@ function toggleSpinner() {
 
 const printRoundOf16 = () => {
 	const standings = Storage.get("standings");
-	const matches = {};
-	matches["m49"] = [standings["Grupo A"][0].id];
-	matches["m49"].push(standings["Grupo B"][1].id);
-	matches["m50"] = [standings["Grupo C"][0].id];
-	matches["m50"].push(standings["Grupo D"][1].id);
-	matches["m51"] = [standings["Grupo B"][0].id];
-	matches["m51"].push(standings["Grupo A"][1].id);
-	matches["m52"] = [standings["Grupo D"][0].id];
-	matches["m52"].push(standings["Grupo C"][1].id);
-	matches["m53"] = [standings["Grupo E"][0].id];
-	matches["m53"].push(standings["Grupo F"][1].id);
-	matches["m54"] = [standings["Grupo G"][0].id];
-	matches["m54"].push(standings["Grupo H"][1].id);
-	matches["m55"] = [standings["Grupo F"][0].id];
-	matches["m55"].push(standings["Grupo E"][1].id);
-	matches["m56"] = [standings["Grupo H"][0].id];
-	matches["m56"].push(standings["Grupo G"][1].id);
+	if (standings) {
+		const matches = {};
+		matches["m49"] = [standings["Grupo A"][0].id];
+		matches["m49"].push(standings["Grupo B"][1].id);
+		matches["m50"] = [standings["Grupo C"][0].id];
+		matches["m50"].push(standings["Grupo D"][1].id);
+		matches["m51"] = [standings["Grupo B"][0].id];
+		matches["m51"].push(standings["Grupo A"][1].id);
+		matches["m52"] = [standings["Grupo D"][0].id];
+		matches["m52"].push(standings["Grupo C"][1].id);
+		matches["m53"] = [standings["Grupo E"][0].id];
+		matches["m53"].push(standings["Grupo F"][1].id);
+		matches["m54"] = [standings["Grupo G"][0].id];
+		matches["m54"].push(standings["Grupo H"][1].id);
+		matches["m55"] = [standings["Grupo F"][0].id];
+		matches["m55"].push(standings["Grupo E"][1].id);
+		matches["m56"] = [standings["Grupo H"][0].id];
+		matches["m56"].push(standings["Grupo G"][1].id);
 
-	Object.keys(matches).forEach((match) => {
-		const matchElement = document.getElementById(match);
-		matchElement.querySelector(".home-team").textContent =
-			" " + teams[matches[match][0]].shortName;
-		matchElement.querySelector(".away-team").textContent =
-			teams[matches[match][1]].shortName;
-		const iHomeElement = document.createElement("i");
-		const iAwayElement = document.createElement("i");
-		const homeFlagClass = teams[matches[match][0]].flagClass;
-		const awayFlagClass = teams[matches[match][1]].flagClass;
-		iHomeElement.classList.add("flag", `${homeFlagClass}`);
-		iAwayElement.classList.add("flag", `${awayFlagClass}`);
-		matchElement.querySelector(".home-team").prepend(iHomeElement);
-		matchElement.querySelector(".away-team").append(iAwayElement);
+		Object.keys(matches).forEach((match) => {
+			const matchElement = document.getElementById(match);
+			matchElement.querySelector(".home-team").textContent =
+				" " + teams[matches[match][0]].shortName;
+			matchElement.querySelector(".away-team").textContent =
+				teams[matches[match][1]].shortName;
+			const iHomeElement = document.createElement("i");
+			const iAwayElement = document.createElement("i");
+			const homeFlagClass = teams[matches[match][0]].flagClass;
+			const awayFlagClass = teams[matches[match][1]].flagClass;
+			iHomeElement.classList.add("flag", `${homeFlagClass}`);
+			iAwayElement.classList.add("flag", `${awayFlagClass}`);
+			matchElement.querySelector(".home-team").prepend(iHomeElement);
+			matchElement.querySelector(".away-team").append(iAwayElement);
+			// const scoreId = games.filter((game) => {
+			// 	return (
+			// 		// score.homeGoals !== null &&
+			// 		teams[game.homeTeam].shortName === score.homeTeam &&
+			// 		teams[game.awayTeam].shortName === score.awayTeam
+			// 	);
+			// })[0]?.matchId;
 
-		// const scoreId = games.filter((game) => {
-		// 	return (
-		// 		// score.homeGoals !== null &&
-		// 		teams[game.homeTeam].shortName === score.homeTeam &&
-		// 		teams[game.awayTeam].shortName === score.awayTeam
-		// 	);
-		// })[0]?.matchId;
-
-		// if(matchElement.children()[0].textContent===)
-	});
+			// if(matchElement.children()[0].textContent===)
+		});
+	}
 };
 
 const finalMatches = {
