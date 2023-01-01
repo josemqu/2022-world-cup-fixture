@@ -865,7 +865,7 @@ const printScores = (scoresObj) => {
 const getScores = (data) => {
 	const scoresObj = {};
 	console.table(data);
-	data.forEach((score) => {
+	data.forEach((score, i) => {
 		const scoreId = games.filter((game) => {
 			return (
 				// score.homeGoals !== null &&
@@ -874,10 +874,12 @@ const getScores = (data) => {
 			);
 		})[0]?.matchId;
 		if (scoreId) scoresObj[scoreId] = score;
+		data[i]["id"] = scoreId;
 	});
 	console.log(scoresObj);
+	console.log(data);
 	Storage.save(scoresObj, "scores");
-	return scoresObj;
+	return { scoresObj, data };
 };
 
 const printStandings = (standings) => {
@@ -1038,6 +1040,16 @@ const printRoundOf16 = () => {
 		iAwayElement.classList.add("flag", `${awayFlagClass}`);
 		matchElement.querySelector(".home-team").prepend(iHomeElement);
 		matchElement.querySelector(".away-team").append(iAwayElement);
+
+		// const scoreId = games.filter((game) => {
+		// 	return (
+		// 		// score.homeGoals !== null &&
+		// 		teams[game.homeTeam].shortName === score.homeTeam &&
+		// 		teams[game.awayTeam].shortName === score.awayTeam
+		// 	);
+		// })[0]?.matchId;
+
+		// if(matchElement.children()[0].textContent===)
 	});
 };
 

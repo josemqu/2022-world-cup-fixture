@@ -410,3 +410,11 @@ tbody tr :nth-child(12) {
     border-bottom: solid #bbb 2px;
     border-bottom-right-radius: 20px;
 }
+
+#m53:nth-child(2) ::before {
+    content: "(3)";
+    display: block;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
