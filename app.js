@@ -859,10 +859,14 @@ const printScores = (scoresObj) => {
     gameElement.classList.remove("grres0");
     gameElement.classList.remove("grres1");
     gameElement.classList.add(scoresObj[score].state);
+    // gameElement.querySelector(".home-penalties").textContent =
+    //   scoresObj[score].homePenalties;
     gameElement.querySelector(".home-goals").textContent =
       scoresObj[score].homeGoals;
     gameElement.querySelector(".away-goals").textContent =
       scoresObj[score].awayGoals;
+    // gameElement.querySelector(".away-penalties").textContent =
+    //   scoresObj[score].awayPenalties;
   });
 };
 
@@ -1088,10 +1092,19 @@ const getWinner = (homeTeam, awayTeam, homeGoals, awayGoals) => {
 const getScore = (matchId) => {
   const matchElement = document.getElementById(matchId);
   const homeTeam = matchElement.children()[0].textContent;
-  const homeGoals = matchElement.children()[1].textContent;
-  const awayGoals = matchElement.children()[2].textContent;
-  const awayTeam = matchElement.children()[3].textContent;
-  return { homeTeam, homeGoals, awayGoals, awayTeam };
+  // const homePenalties = matchElement.children()[1].textContent;
+  const homeGoals = matchElement.children()[2].textContent;
+  const awayGoals = matchElement.children()[3].textContent;
+  // const awayPenalties = matchElement.children()[4].textContent;
+  const awayTeam = matchElement.children()[5].textContent;
+  return {
+    homeTeam,
+    // homePenalties,
+    homeGoals,
+    awayGoals,
+    // awayPenalties,
+    awayTeam,
+  };
 };
 
 const getOpponents = (matchId) => {
