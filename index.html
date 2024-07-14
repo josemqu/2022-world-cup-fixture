@@ -1,461 +1,558 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Qatar World Cup 2022</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
     <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+    />
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
     <!-- MDB -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/brackets-viewer@latest/dist/brackets-viewer.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/brackets-viewer@latest/dist/brackets-viewer.min.css"
+    />
 
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./styles.css" />
     <!-- <link rel="stylesheet" href="./brackets.css"> -->
-</head>
+  </head>
 
-<body>
-
+  <body>
     <div class="container sticky-top">
-        <div class="container main-header sticky-top bg-primary text-light">
-            <div class="title h1 mt-2">PRIMERA FASE</div>
-            <div id="spinner-div" class="d-flex m-1">
-                <div id="spinner" class="spinner-border text-light hide spinner" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-            </div>
-            <i id="update-icon" class="bi bi-arrow-repeat update-icon" style="font-size: 2.4rem;" data-bs-toggle="tooltip" data-bs-placement="top" title="Actualizar"></i>
+      <div class="container main-header sticky-top bg-primary text-light">
+        <div class="title h1 mt-2">PRIMERA FASE</div>
+        <div id="spinner-div" class="d-flex m-1">
+          <div
+            id="spinner"
+            class="spinner-border text-light hide spinner"
+            role="status"
+          >
+            <span class="visually-hidden">Loading...</span>
+          </div>
         </div>
-        <div class="row justify-content-evenly">
-            <div class="group col">
-                <div class="table"></div>
-                <div class="games">
-                    <table class="table table-sm table-hover">
-                        <tbody></tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="group col">
-                <div class="table"></div>
-                <div class="games">
-                    <table class="table table-sm table-hover">
-                        <tbody></tbody>
-                    </table>
-                </div>
-            </div>
+        <i
+          id="update-icon"
+          class="bi bi-arrow-repeat update-icon"
+          style="font-size: 2.4rem"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Actualizar"
+        ></i>
+      </div>
+      <div class="row justify-content-evenly">
+        <div class="group col">
+          <div class="table"></div>
+          <div class="games">
+            <table class="table table-sm table-hover">
+              <tbody></tbody>
+            </table>
+          </div>
         </div>
-        <div class="row justify-content-evenly">
-            <div class="group col">
-                <div class="table"></div>
-                <div class="games">
-                    <table class="table table-sm table-hover">
-                        <tbody></tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="group col">
-                <div class="table"></div>
-                <div class="games">
-                    <table class="table table-sm table-hover">
-                        <tbody></tbody>
-                    </table>
-                </div>
-            </div>
+        <div class="group col">
+          <div class="table"></div>
+          <div class="games">
+            <table class="table table-sm table-hover">
+              <tbody></tbody>
+            </table>
+          </div>
         </div>
-        <div class="row justify-content-evenly">
-            <div class="group col">
-                <div class="table"></div>
-                <div class="games">
-                    <table class="table table-sm table-hover">
-                        <tbody></tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="group col">
-                <div class="table"></div>
-                <div class="games">
-                    <table class="table table-sm table-hover">
-                        <tbody></tbody>
-                    </table>
-                </div>
-            </div>
+      </div>
+      <div class="row justify-content-evenly">
+        <div class="group col">
+          <div class="table"></div>
+          <div class="games">
+            <table class="table table-sm table-hover">
+              <tbody></tbody>
+            </table>
+          </div>
         </div>
-        <div class="row justify-content-evenly">
-            <div class="group col">
-                <div class="table"></div>
-                <div class="games">
-                    <table class="table table-sm table-hover">
-                        <tbody></tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="group col">
-                <div class="table"></div>
-                <div class="games">
-                    <table class="table table-sm table-hover">
-                        <tbody></tbody>
-                    </table>
-                </div>
-            </div>
+        <div class="group col">
+          <div class="table"></div>
+          <div class="games">
+            <table class="table table-sm table-hover">
+              <tbody></tbody>
+            </table>
+          </div>
         </div>
-        <div class="container main-header sticky-top bg-primary text-light">
-            <div class="title h1 mt-2">SEGUNDA FASE</div>
-            <div id="spinner-div" class="d-flex m-1">
-                <div id="spinner" class="spinner-border text-light hide spinner" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-            </div>
-            <i id="update-icon" class="bi bi-arrow-repeat update-icon" style="font-size: 2.4rem;" data-bs-toggle="tooltip" data-bs-placement="top" title="Actualizar"></i>
+      </div>
+      <div class="row justify-content-evenly">
+        <div class="group col">
+          <div class="table"></div>
+          <div class="games">
+            <table class="table table-sm table-hover">
+              <tbody></tbody>
+            </table>
+          </div>
         </div>
-        <div class="large container text-center">
-            <div class="row second-round">
-                <div class="col ">
-                    <div class="grid-col">
-                        <div class="h5">Octavos</div>
-                        <div class="matches d-flex justify-content-around">
-                            <div class="match-item match-item1">
-                                <div class="match-container">
-                                    <span class="date">Sab 3/12, 12:00</span>
-                                    <table class="game">
-                                        <tbody>
-                                            <tr id="m49">
-                                                <td class="home-team"><i class="flag flag-nl"></i> PAI</td>
-                                                <td class="home-goals">3</td>
-                                                <td class="away-goals">1</td>
-                                                <td class="away-team">USA <i class="flag flag-us"></i></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="match-item match-item1">
-                                <div class="match-container">
-                                    <span class="date">Sab 3/12, 16:00</span>
-                                    <table class="game">
-                                        <tbody>
-                                            <tr id="m50">
-                                                <td class="home-team"><i class="flag flag-argentina"></i> ARG</td>
-                                                <td class="home-goals">2</td>
-                                                <td class="away-goals">1</td>
-                                                <td class="away-team">AUS <i class="flag flag-australia"></i></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="match-item match-item1">
-                                <div class="match-container">
-                                    <span class="date">Lun 5/12, 12:00</span>
-                                    <table class="game">
-                                        <tbody>
-                                            <tr id="m53">
-                                                <td class="home-team"><i class="flag"></i>1°GE</td>
-                                                <td class="home-goals">1</td>
-                                                <td class="away-goals">1</td>
-                                                <td class="away-team">2°GF <i class="flag"></i></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="match-item match-item1">
-                                <div class="match-container">
-                                    <span class="date">Lun 5/12, 16:00</span>
-                                    <table class="game">
-                                        <tbody>
-                                            <tr id="m54">
-                                                <td class="home-team"><i class="flag"></i>1°GG</td>
-                                                <td class="home-goals">4</td>
-                                                <td class="away-goals">1</td>
-                                                <td class="away-team">2°GH <i class="flag"></i></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="match-item match-item1">
-                                <div class="match-container">
-                                    <span class="date">Dom 4/12, 16:00</span>
-                                    <table class="game">
-                                        <tbody>
-                                            <tr id="m51">
-                                                <td class="home-team"><i class="flag flag-england"></i> ING</td>
-                                                <td class="home-goals">3</td>
-                                                <td class="away-goals">0</td>
-                                                <td class="away-team">SEN <i class="flag flag-sn"></i></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="match-item match-item1">
-                                <div class="match-container">
-                                    <span class="date">Dom 4/12, 12:00</span>
-                                    <table class="game">
-                                        <tbody>
-                                            <tr id="m52">
-                                                <td class="home-team"><i class="flag flag-france"></i> FRA</td>
-                                                <td class="home-goals">3</td>
-                                                <td class="away-goals">1</td>
-                                                <td class="away-team">POL <i class="flag flag-poland"></i></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="match-item match-item1">
-                                <div class="match-container">
-                                    <span class="date">Mar 6/12, 12:00</span>
-                                    <table class="game">
-                                        <tbody>
-                                            <tr id="m55">
-                                                <td class="home-team"><i class="flag"></i>1°GF</td>
-                                                <td class="home-goals">0</td>
-                                                <td class="away-goals">0</td>
-                                                <td class="away-team">2°GE <i class="flag"></i></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="match-item match-item1">
-                                <div class="match-container">
-                                    <span class="date">Mar 6/12, 16:00</span>
-                                    <table class="game">
-                                        <tbody>
-                                            <tr id="m56">
-                                                <td class="home-team"><i class="flag"></i>1°GH</td>
-                                                <td class="home-goals">6</td>
-                                                <td class="away-goals">1</td>
-                                                <td class="away-team">2°GG <i class="flag"></i></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+        <div class="group col">
+          <div class="table"></div>
+          <div class="games">
+            <table class="table table-sm table-hover">
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-evenly">
+        <div class="group col">
+          <div class="table"></div>
+          <div class="games">
+            <table class="table table-sm table-hover">
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="group col">
+          <div class="table"></div>
+          <div class="games">
+            <table class="table table-sm table-hover">
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="container main-header sticky-top bg-primary text-light">
+        <div class="title h1 mt-2">SEGUNDA FASE</div>
+        <div id="spinner-div" class="d-flex m-1">
+          <div
+            id="spinner"
+            class="spinner-border text-light hide spinner"
+            role="status"
+          >
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+        <i
+          id="update-icon"
+          class="bi bi-arrow-repeat update-icon"
+          style="font-size: 2.4rem"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Actualizar"
+        ></i>
+      </div>
+      <div class="large container text-center">
+        <div class="row second-round">
+          <div class="col">
+            <div class="grid-col">
+              <div class="h5">Octavos</div>
+              <div class="matches d-flex justify-content-around">
+                <div class="match-item match-item1">
+                  <div class="match-container">
+                    <span class="date">Sab 3/12, 12:00</span>
+                    <table class="game">
+                      <tbody>
+                        <tr id="m49">
+                          <td class="home-team">
+                            <i class="flag flag-nl"></i> PAI
+                          </td>
+                          <td class="home-goals">3</td>
+                          <td class="away-goals">1</td>
+                          <td class="away-team">
+                            USA <i class="flag flag-us"></i>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="match-item match-item1">
+                  <div class="match-container">
+                    <span class="date">Sab 3/12, 16:00</span>
+                    <table class="game">
+                      <tbody>
+                        <tr id="m50">
+                          <td class="home-team">
+                            <i class="flag flag-argentina"></i> ARG
+                          </td>
+                          <td class="home-goals">2</td>
+                          <td class="away-goals">1</td>
+                          <td class="away-team">
+                            AUS <i class="flag flag-australia"></i>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="match-item match-item1">
+                  <div class="match-container">
+                    <span class="date">Lun 5/12, 12:00</span>
+                    <table class="game">
+                      <tbody>
+                        <tr id="m53">
+                          <td class="home-team"><i class="flag"></i>1°GE</td>
+                          <td class="home-goals">1</td>
+                          <td class="away-goals">1</td>
+                          <td class="away-team">2°GF <i class="flag"></i></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="match-item match-item1">
+                  <div class="match-container">
+                    <span class="date">Lun 5/12, 16:00</span>
+                    <table class="game">
+                      <tbody>
+                        <tr id="m54">
+                          <td class="home-team"><i class="flag"></i>1°GG</td>
+                          <td class="home-goals">4</td>
+                          <td class="away-goals">1</td>
+                          <td class="away-team">2°GH <i class="flag"></i></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="match-item match-item1">
+                  <div class="match-container">
+                    <span class="date">Dom 4/12, 16:00</span>
+                    <table class="game">
+                      <tbody>
+                        <tr id="m51">
+                          <td class="home-team">
+                            <i class="flag flag-england"></i> ING
+                          </td>
+                          <td class="home-goals">3</td>
+                          <td class="away-goals">0</td>
+                          <td class="away-team">
+                            SEN <i class="flag flag-sn"></i>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="match-item match-item1">
+                  <div class="match-container">
+                    <span class="date">Dom 4/12, 12:00</span>
+                    <table class="game">
+                      <tbody>
+                        <tr id="m52">
+                          <td class="home-team">
+                            <i class="flag flag-france"></i> FRA
+                          </td>
+                          <td class="home-goals">3</td>
+                          <td class="away-goals">1</td>
+                          <td class="away-team">
+                            POL <i class="flag flag-poland"></i>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="match-item match-item1">
+                  <div class="match-container">
+                    <span class="date">Mar 6/12, 12:00</span>
+                    <table class="game">
+                      <tbody>
+                        <tr id="m55">
+                          <td class="home-team"><i class="flag"></i>1°GF</td>
+                          <td class="home-goals">0</td>
+                          <td class="away-goals">0</td>
+                          <td class="away-team">2°GE <i class="flag"></i></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="match-item match-item1">
+                  <div class="match-container">
+                    <span class="date">Mar 6/12, 16:00</span>
+                    <table class="game">
+                      <tbody>
+                        <tr id="m56">
+                          <td class="home-team"><i class="flag"></i>1°GH</td>
+                          <td class="home-goals">6</td>
+                          <td class="away-goals">1</td>
+                          <td class="away-team">2°GG <i class="flag"></i></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="grid-col">
+              <div class="h5">Cuartos</div>
+              <div class="matches d-flex justify-content-around">
+                <div class="match-item match-item2 match-item-right">
+                  <div class="match-container">
+                    <span class="date">Vie 9/12, 16:00</span>
+                    <table class="game">
+                      <tbody>
+                        <tr id="m57">
+                          <td class="home-team">
+                            <i class="flag flag-netherlands"></i> PAI
+                          </td>
+                          <td class="home-goals">2</td>
+                          <td class="away-goals">2</td>
+                          <td class="away-team">
+                            ARG<i class="flag flag-argentina"></i>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="match-item match-item2 match-item-right">
+                  <div class="match-container">
+                    <span class="date">Vie 9/12, 12:00</span>
+                    <table class="game">
+                      <tbody>
+                        <tr id="m58">
+                          <td class="home-team">
+                            <i class="flag flag-croatia"></i> CRO
+                          </td>
+                          <td class="home-goals">1</td>
+                          <td class="away-goals">1</td>
+                          <td class="away-team">
+                            BRA <i class="flag flag-brazil"></i>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="match-item match-item2 match-item-right">
+                  <div class="match-container">
+                    <span class="date">Sab 10/12, 16:00</span>
+                    <table class="game">
+                      <tbody>
+                        <tr id="m59">
+                          <td class="home-team">
+                            <i class="flag flag-england"></i> ING
+                          </td>
+                          <td class="home-goals">1</td>
+                          <td class="away-goals">2</td>
+                          <td class="away-team">
+                            FRA<i class="flag flag-france"></i>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="match-item match-item2 match-item-right">
+                  <div class="match-container">
+                    <span class="date">Sab 10, 12:00</span>
+                    <table class="game">
+                      <tbody>
+                        <tr id="m60">
+                          <td class="home-team">
+                            <i class="flag flag-morocco"></i> MAR
+                          </td>
+                          <td class="home-goals">1</td>
+                          <td class="away-goals">0</td>
+                          <td class="away-team">
+                            POR <i class="flag flag-pt"></i>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="grid-col">
+              <div class="h5">Semifinales</div>
+              <div class="matches d-flex justify-content-around">
+                <div class="match-item match-item3 match-item-right">
+                  <div class="match-container">
+                    <span class="date">Mar 13/12, 16:00</span>
+                    <table class="game">
+                      <tbody>
+                        <tr id="m61">
+                          <td class="home-team">
+                            <i class="flag flag-ar"></i> ARG
+                          </td>
+                          <td class="home-goals">3</td>
+                          <td class="away-goals">0</td>
+                          <td class="away-team">
+                            CRO <i class="flag flag-croatia"></i>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="match-item match-item3 match-item-right">
+                  <div class="match-container">
+                    <span class="date">Mie 14/12, 16:00</span>
+                    <table class="game">
+                      <tbody>
+                        <tr id="m62">
+                          <td class="home-team">
+                            <i class="flag flag-fr"></i> FRA
+                          </td>
+                          <td class="home-goals">2</td>
+                          <td class="away-goals">0</td>
+                          <td class="away-team">
+                            MAR <i class="flag flag-morocco"></i>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="grid-col">
+              <div class="h5">Final</div>
+              <div class="matches d-flex justify-content-around">
+                <div>
+                  <div class="h6">Campeón</div>
+                  <div class="match-container">
+                    <i class="flag flag-ar"></i
+                    ><span class="date h6">ARGENTINA</span>
+                  </div>
+                </div>
+                <div>
+                  <div class="h6">Final</div>
+                  <div class="match-item match-item-right">
+                    <div class="match-container final">
+                      <span class="date">Dom 18/12, 12:00</span>
+                      <table class="game">
+                        <tbody>
+                          <tr id="m64">
+                            <td class="home-team">
+                              <i class="flag flag-ar"></i> ARG
+                            </td>
+                            <td class="home-goals">3</td>
+                            <td class="away-goals">3</td>
+                            <td class="away-team">
+                              FRA <i class="flag flag-fr"></i>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
+                  </div>
                 </div>
-                <div class="col">
-                    <div class="grid-col ">
-                        <div class="h5">Cuartos</div>
-                        <div class="matches d-flex justify-content-around">
-                            <div class="match-item match-item2 match-item-right">
-                                <div class="match-container">
-                                    <span class="date">Vie 9/12, 16:00</span>
-                                    <table class="game">
-                                        <tbody>
-                                            <tr id="m57">
-                                                <td class="home-team"><i class="flag flag-netherlands"></i> PAI</td>
-                                                <td class="home-goals">2</td>
-                                                <td class="away-goals">2</td>
-                                                <td class="away-team">ARG<i class="flag flag-argentina"></i></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="match-item match-item2 match-item-right">
-                                <div class="match-container">
-                                    <span class="date">Vie 9/12, 12:00</span>
-                                    <table class="game">
-                                        <tbody>
-                                            <tr id="m58">
-                                                <td class="home-team"><i class="flag flag-croatia"></i> CRO</td>
-                                                <td class="home-goals">1</td>
-                                                <td class="away-goals">1</td>
-                                                <td class="away-team"> BRA <i class="flag flag-brazil"></i></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="match-item match-item2 match-item-right">
-                                <div class="match-container">
-                                    <span class="date">Sab 10/12, 16:00</span>
-                                    <table class="game">
-                                        <tbody>
-                                            <tr id="m59">
-                                                <td class="home-team"><i class="flag flag-england"></i> ING</td>
-                                                <td class="home-goals">1</td>
-                                                <td class="away-goals">2</td>
-                                                <td class="away-team"> FRA<i class="flag flag-france"></i></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="match-item match-item2 match-item-right">
-                                <div class="match-container">
-                                    <span class="date">Sab 10, 12:00</span>
-                                    <table class="game">
-                                        <tbody>
-                                            <tr id="m60">
-                                                <td class="home-team"><i class="flag flag-morocco"></i> MAR</td>
-                                                <td class="home-goals">1</td>
-                                                <td class="away-goals">0</td>
-                                                <td class="away-team">POR <i class="flag flag-pt"></i></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div>
+                  <div class="h6">3er puesto</div>
+                  <div class="match-container">
+                    <span class="date">Sab 17/12, 12:00</span>
+                    <table class="game">
+                      <tbody>
+                        <tr id="m63">
+                          <td class="home-team">
+                            <i class="flag flag-croatia"></i> CRO
+                          </td>
+                          <td class="home-goals">2</td>
+                          <td class="away-goals">1</td>
+                          <td class="away-team">
+                            MAR <i class="flag flag-morocco"></i>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-                <div class="col ">
-                    <div class="grid-col">
-                        <div class="h5">Semifinales</div>
-                        <div class="matches d-flex justify-content-around">
-                            <div class="match-item match-item3 match-item-right">
-                                <div class="match-container">
-                                    <span class="date">Mar 13/12, 16:00</span>
-                                    <table class="game">
-                                        <tbody>
-                                            <tr id="m61">
-                                                <td class=" home-team"><i class="flag flag-ar"></i> ARG</td>
-                                                <td class="home-goals">3</td>
-                                                <td class="away-goals">0</td>
-                                                <td class="away-team">CRO <i class="flag flag-croatia"></i></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="match-item match-item3 match-item-right">
-                                <div class="match-container">
-                                    <span class="date">Mie 14/12, 16:00</span>
-                                    <table class="game">
-                                        <tbody>
-                                            <tr id="m62">
-                                                <td class=" home-team"><i class="flag flag-fr"></i> FRA</td>
-                                                <td class="home-goals">2</td>
-                                                <td class="away-goals">0</td>
-                                                <td class="away-team">MAR <i class="flag flag-morocco"></i></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col ">
-                    <div class="grid-col">
-                        <div class="h5">Final</div>
-                        <div class="matches d-flex justify-content-around">
-                            <div>
-                                <div class="h6">Campeón</div>
-                                <div class="match-container">
-                                    <i class="flag flag-ar"></i><span class="date h6">ARGENTINA</span>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="h6">Final</div>
-                                <div class="match-item match-item-right">
-                                    <div class="match-container final">
-                                        <span class="date">Dom 18/12, 12:00</span>
-                                        <table class="game">
-                                            <tbody>
-                                                <tr id="m64">
-                                                    <td class="home-team"><i class="flag flag-ar"></i> ARG</td>
-                                                    <td class="home-goals">3</td>
-                                                    <td class="away-goals">3</td>
-                                                    <td class="away-team">FRA <i class="flag flag-fr"></i></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="h6">3er puesto</div>
-                                <div class="match-container">
-                                    <span class="date">Sab 17/12, 12:00</span>
-                                    <table class="game">
-                                        <tbody>
-                                            <tr id="m63">
-                                                <td class="home-team"><i class="flag flag-croatia"></i> CRO</td>
-                                                <td class="home-goals">2</td>
-                                                <td class="away-goals">1</td>
-                                                <td class="away-team">MAR <i class="flag flag-morocco"></i></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
-
-
+          </div>
         </div>
+      </div>
     </div>
 
     <template id="group-template">
-        <div class="fw-bold group-name h5 text-end">Grupo A</div>
-        <div class="table-responsive">
-            <table class="table table-sm table-hover standings-table">
-                <thead>
-                    <tr class="bg-success text-light">
-                        <th>#</th>
-                        <th>Equipo</th>
-                        <th>PTS</th>
-                        <th>PJ</th>
-                        <th>PG</th>
-                        <th>PE</th>
-                        <th>PP</th>
-                        <th>GF</th>
-                        <th>GC</th>
-                        <th>DIF</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
+      <div class="fw-bold group-name h5 text-end">Grupo A</div>
+      <div class="table-responsive">
+        <table class="table table-sm table-hover standings-table">
+          <thead>
+            <tr class="bg-success text-light">
+              <th>#</th>
+              <th>Equipo</th>
+              <th>PTS</th>
+              <th>PJ</th>
+              <th>PG</th>
+              <th>PE</th>
+              <th>PP</th>
+              <th>GF</th>
+              <th>GC</th>
+              <th>DIF</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </template>
 
     <template id="team-template">
-        <tr class="team-data">
-            <td class="pos">1</td>
-            <td class="id"><i class="flag"></i> Equipo 1</td>
-            <td class="pts"></td>
-            <td class="played"></td>
-            <td class="won"></td>
-            <td class="draw"></td>
-            <td class="loss"></td>
-            <td class="gf"></td>
-            <td class="ga"></td>
-            <td class="diff"></td>
-        </tr>
+      <tr class="team-data">
+        <td class="pos">1</td>
+        <td class="id"><i class="flag"></i> Equipo 1</td>
+        <td class="pts"></td>
+        <td class="played"></td>
+        <td class="won"></td>
+        <td class="draw"></td>
+        <td class="loss"></td>
+        <td class="gf"></td>
+        <td class="ga"></td>
+        <td class="diff"></td>
+      </tr>
     </template>
 
     <template id="game-template">
-        <tr class="game">
-            <td class="date">Dom 20/11, 13:00</td>
-            <td class="home-team"><i class="flag"></i> EQ1</td>
-            <td class="home-goals"></td>
-            <td class="away-goals"></td>
-            <td class="away-team"><i class="flag"></i> EQ2</td>
-        </tr>
+      <tr class="game">
+        <td class="date">Dom 20/11, 13:00</td>
+        <td class="home-team"><i class="flag"></i> EQ1</td>
+        <td class="home-penalties"></td>
+        <td class="home-goals"></td>
+        <td class="away-goals"></td>
+        <td class="away-penalties"></td>
+        <td class="away-team"><i class="flag"></i> EQ2</td>
+      </tr>
     </template>
-</body>
+  </body>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<!-- MDB -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brackets-viewer@latest/dist/brackets-viewer.min.js"></script>
-<script type="module" src="./model.js"></script>
-<script type="module" src="./app.js"></script>
-
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"
+  ></script>
+  <!-- MDB -->
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/brackets-viewer@latest/dist/brackets-viewer.min.js"
+  ></script>
+  <script type="module" src="./model.js"></script>
+  <script type="module" src="./app.js"></script>
 </html>
